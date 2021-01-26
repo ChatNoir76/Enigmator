@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Enigmator
 Bundle-SymbolicName: fr.chatnoir.enigmator;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: fr.chatnoir.enigmator.Activator
+Bundle-Activator: fr.chatnoir.enigmator.core.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.apache.felix.scr,

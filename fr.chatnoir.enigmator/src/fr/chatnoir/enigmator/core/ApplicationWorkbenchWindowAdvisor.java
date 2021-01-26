@@ -1,4 +1,4 @@
-package fr.chatnoir.enigmator;
+package fr.chatnoir.enigmator.core;
 
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.application.ActionBarAdvisor;
@@ -21,7 +21,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 	@Override
 	public void preWindowOpen() {
 		IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-		configurer.setInitialSize(new Point(400, 300));
+		configurer.setInitialSize(new Point(500, 800));
 		configurer.setShowCoolBar(false);
 		configurer.setShowStatusLine(false);
 		configurer.setTitle("RCP Enigmator Application");

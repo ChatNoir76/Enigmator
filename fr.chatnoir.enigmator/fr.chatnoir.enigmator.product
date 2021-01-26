@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Enigmator" uid="enigmatorApplication" application="fr.chatnoir.enigmator.application" version="0.0.0" useFeatures="false" includeLaunchers="true">
+<product name="Enigmator" uid="fr.chatnoir.enigmator" id="fr.chatnoir.enigmator.Enigmator" application="fr.chatnoir.enigmator.application" version="0.0.0.qualifier" useFeatures="false" includeLaunchers="true">
 
 
    <configIni use="default">
@@ -17,7 +17,7 @@
    <windowImages/>
 
 
-   <launcher>
+   <launcher name="Enigmator">
       <win useIco="false">
          <bmp/>
       </win>

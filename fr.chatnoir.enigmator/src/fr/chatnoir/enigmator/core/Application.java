@@ -1,4 +1,4 @@
-package fr.chatnoir.enigmator;
+package fr.chatnoir.enigmator.core;
 
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;

@@ -1,4 +1,4 @@
-package fr.chatnoir.enigmator;
+package fr.chatnoir.enigmator.core;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

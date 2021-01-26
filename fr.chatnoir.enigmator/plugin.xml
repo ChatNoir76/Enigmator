@@ -7,14 +7,14 @@
          point="org.eclipse.core.runtime.applications">
       <application>
          <run
-               class="fr.chatnoir.enigmator.Application">
+               class="fr.chatnoir.enigmator.core.Application">
          </run>
       </application>
    </extension>
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            class="fr.chatnoir.enigmator.Perspective"
+            class="fr.chatnoir.enigmator.ui.perspective.Perspective"
             name="Perspective"
             id="fr.chatnoir.enigmator.perspective">
       </perspective>
@@ -22,7 +22,7 @@
    <extension
          point="org.eclipse.ui.views">
       <view
-            class="fr.chatnoir.enigmator.View"
+            class="fr.chatnoir.enigmator.ui.view.View"
             name="View"
             id="fr.chatnoir.enigmator.view"
             inject="true">
@@ -46,6 +46,7 @@
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu">
          <menu
+               id="file"
                label="File">
             <command
                   commandId="org.eclipse.ui.file.exit"
@@ -53,6 +54,44 @@
             </command>
          </menu>
       </menuContribution>
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=file">
+         <menu
+               id="edition"
+               label="Edition">
+            <command
+                  commandId="fr.chatnoir.enigmator.conversioncommand"
+                  label="Convertir">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         id="Enigmator"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="fr.chatnoir.enigmator.application"
+            name="Enigmator">
+         <property
+               name="appName"
+               value="Enigmator">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="fr.chatnoir.enigmator.ui.handler.ConversionHandler"
+            commandId="fr.chatnoir.enigmator.conversionhandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.chatnoir.enigmator.ui.handler.ConversionHandler"
+            id="fr.chatnoir.enigmator.conversioncommand"
+            name="conversion">
+      </command>
    </extension>
 
 </plugin>
