@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Enigmator
+Bundle-SymbolicName: fr.chatnoir.enigmator;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: fr.chatnoir.enigmator.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.apache.felix.scr,
+ org.eclipse.equinox.event
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: fr.chatnoir.enigmator
+Import-Package: javax.inject
+Bundle-ActivationPolicy: lazy
