@@ -21,9 +21,9 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 	@Override
 	public void preWindowOpen() {
 		IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-		configurer.setInitialSize(new Point(500, 800));
+		configurer.setInitialSize(new Point(25, 40));
 		configurer.setShowCoolBar(false);
-		configurer.setShowStatusLine(false);
+		configurer.setShowStatusLine(true);
 		configurer.setTitle("RCP Enigmator Application");
 	}
 }

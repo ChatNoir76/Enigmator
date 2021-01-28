@@ -4,9 +4,9 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
-public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
+import fr.chatnoir.enigmator.view.EgnigmatorPerspective;
 
-	private static final String PERSPECTIVE_ID = "fr.chatnoir.enigmator.perspective";
+public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
 	@Override
 	public WorkbenchWindowAdvisor createWorkbenchWindowAdvisor(
@@ -16,7 +16,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 	
 	@Override
 	public String getInitialWindowPerspectiveId() {
-		return PERSPECTIVE_ID;
+		return EgnigmatorPerspective.PERSPECTIVE_ID;
 	}
 
 }
