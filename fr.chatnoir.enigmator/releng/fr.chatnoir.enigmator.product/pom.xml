@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+		<groupId>fr.chatnoir.enigmator</groupId>
+		<artifactId>releng</artifactId>
+		<version>1.1.1-SNAPSHOT</version>
+	</parent>
+  
+  <artifactId>fr.chatnoir.enigmator.product</artifactId>
+  <packaging>eclipse-repository</packaging>
+  <properties>
+		<tycho.product.id>enigmator</tycho.product.id>
+		<tycho.product.rootFolder>enigmator</tycho.product.rootFolder>
+	</properties>
+  
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<!-- install the product using the p2 director -->
+						<id>materialize-products</id>
+						<goals>
+							<goal>materialize-products</goal>
+						</goals>
+					</execution>
+					<execution>
+						<!-- create zip file with the installed product -->
+						<id>archive-products</id>
+						<goals>
+							<goal>archive-products</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<products>
+						<product>
+							<id>${tycho.product.id}</id>
+							<!-- optional parameters -->
+							<!-- <rootFolder></rootFolder> -->
+							<rootFolders>
+								<linux>${tycho.product.id}</linux>
+								<win32>${tycho.product.id}</win32>
+							</rootFolders>
+							<archiveFileName>${tycho.product.id}_${qualifiedVersion}</archiveFileName>
+						</product>
+					</products>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+  
+</project>

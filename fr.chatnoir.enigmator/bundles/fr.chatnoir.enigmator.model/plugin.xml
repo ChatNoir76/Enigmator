@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.emf.ecore.factory_override">
+      <factory
+            uri="http://www.example.org/model"
+            class="fr.chatnoir.enigmator.model.impl.ModelFactoryImpl">
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="fr.chatnoir.enigmator.model.MModelPackage"
+            uri="http://www.example.org/model">
+      </package>
+   </extension>
+
+</plugin>
