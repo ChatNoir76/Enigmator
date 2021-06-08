@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+	<property name="FILE_PATH" value="logger" />
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <Pattern>[%level] %msg%n</Pattern>
@@ -8,9 +10,20 @@
         </encoder>
     </appender>
 
-    <logger name="fr.chatnoir.enigmator" level="info" />
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${FILE_PATH}/Enigmator.log</file>
+        <append>true</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>[%level] - %msg%n</pattern>
+        </encoder>
+    </appender>
 
-    <root level="debug">
+    <root level="info">
+        <appender-ref ref="FILE" />
+    </root>
+
+    <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
 

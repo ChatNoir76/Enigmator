@@ -1,4 +1,4 @@
-package fr.chatnoir.enigmator.core;
+package fr.chatnoir.enigmator;
 
 import java.io.IOException;
 

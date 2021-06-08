@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>fr.chatnoir.enigmator</groupId>
   <artifactId>fr.chatnoir.enigmator</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <modules>
@@ -15,11 +15,11 @@
   	<properties>
 		<xtextVersion>2.15.0</xtextVersion>
 		<project.build.sourceEncoding>windows-1252</project.build.sourceEncoding>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>15</maven.compiler.source>
+		<maven.compiler.target>15</maven.compiler.target>
 		<!-- Tycho settings -->
-		<tycho-version>2.2.0</tycho-version>
-		<tycho.version>2.2.0</tycho.version> 
+		<tycho-version>2.3.0</tycho-version>
+		<tycho.version>2.3.0</tycho.version> 
 		<!-- Define overridable properties for tycho-surefire-plugin -->
 		<platformSystemProperties></platformSystemProperties>
 		<moduleProperties></moduleProperties>
@@ -88,6 +88,7 @@
 							<version>${project.version}</version>
 						</artifact>
 					</target>
+					<resolveWithExecutionEnvironmentConstraints>false</resolveWithExecutionEnvironmentConstraints>
 					<environments>
 						<environment>
 							<os>win32</os>
@@ -100,6 +101,11 @@
 							<arch>x86_64</arch>
 						</environment>
 					</environments>
+					<dependency-resolution>
+              <profileProperties>
+                <org.eclipse.justj.buildtime>true</org.eclipse.justj.buildtime>
+              </profileProperties>
+            </dependency-resolution>
 				</configuration>
 			</plugin>
 		</plugins>

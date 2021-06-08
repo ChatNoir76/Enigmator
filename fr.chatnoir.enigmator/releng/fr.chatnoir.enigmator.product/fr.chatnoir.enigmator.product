@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Enigmator" uid="enigmator" id="fr.chatnoir.enigmator.core.Enigmator" application="fr.chatnoir.enigmator.core.application" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Enigmator" uid="enigmator" id="fr.chatnoir.enigmator.core.Enigmator" application="fr.chatnoir.enigmator.core.application" version="1.1.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="eclipse_lg.png"/>
@@ -16,7 +16,7 @@
    <launcherArgs>
       <programArgs>-consoleLog
       </programArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=11
+      <vmArgs>-Dosgi.requiredJavaVersion=15
 
 -XX:+UseG1GC
 
@@ -43,8 +43,6 @@
    </launcher>
 
    <vm>
-      <linux include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</linux>
-      <windows include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</windows>
    </vm>
 
    <plugins>
@@ -76,9 +74,9 @@
 
    <features>
       <feature id="fr.chatnoir.enigmator.feature" installMode="root"/>
-      <feature id="org.eclipse.e4.rcp" installMode="root"/>
       <feature id="org.eclipse.emf.ecore" installMode="root"/>
       <feature id="org.eclipse.emf.common" installMode="root"/>
+      <feature id="org.eclipse.justj.openjdk.hotspot.jre.full" installMode="root"/>
    </features>
 
    <configurations>
