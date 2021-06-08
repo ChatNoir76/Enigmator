@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import fr.chatnoir.enigmator.core.arguments.ArgsProcessor;
+import fr.chatnoir.enigmator.service.Service;
 
 /**
  * This class controls all aspects of the application's execution
@@ -35,17 +36,13 @@ public class Application implements IApplication {
 				this.helpScreen();
 			} else if(processor.isArgDecrypt()) {
 				logger.info("Résultats du décryptage:");
+				logger.info(Service.uncrypt(processor.getStringValue()));
 			} else if(processor.isArgEncrypt()) {
 				logger.info("Résultats du Cryptage:");
+				logger.info(Service.encrypt(processor.getStringValue()));
 			} else {
-				logger.warn("Résultats du Cryptage:");
+				logger.warn("Pas d'action requise");
 			}
-			
-			logger.debug(processor.getStringValue());
-			
-			
-			
-			
 			return IApplication.EXIT_OK;
 		} else {
 			logger.info("*** Application Enigmator ***");
