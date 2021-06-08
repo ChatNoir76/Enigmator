@@ -19,42 +19,44 @@
    <requires>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="fr.chatnoir.enigmator.model" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.slf4j.api"/>
+      <import plugin="org.slf4j.api" version="1.7.30" match="equivalent"/>
    </requires>
 
    <plugin
          id="fr.chatnoir.enigmator.model"
          download-size="0"
          install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.slf4j.api"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="ch.qos.logback.classic"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.2.3.v20200428-2012"
          unpack="false"/>
 
    <plugin
          id="ch.qos.logback.core"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.2.3.v20200428-2012"
          unpack="false"/>
 
    <plugin
          id="fr.chatnoir.enigmator.core"
          download-size="0"
          install-size="0"
+         version="1.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="ch.qos.logback.slf4j"
+         download-size="0"
+         install-size="0"
          version="0.0.0"
+         fragment="true"
          unpack="false"/>
 
 </feature>

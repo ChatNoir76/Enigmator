@@ -19,23 +19,6 @@ import fr.chatnoir.enigmator.model.ModelFactory;
 import fr.chatnoir.enigmator.model.operation;
 
 public class Service {
-
-	private final static String[] ARG_DECRYPT = {"-d:", "--decrypt:"};
-	private final static String[] ARG_ENCRYPT = {"-e:", "--encrypt:"};
-	private final static String[] ARG_HELP = {"-h", "--help"};
-	
-	public static ArgumentsType getArgumentType(String arg) throws EnigmatorException {
-		
-		if(arg.startsWith(ARG_DECRYPT[0]) || arg.startsWith(ARG_DECRYPT[1])) {
-			return ArgumentsType.Decrypt;
-		} else if(arg.startsWith(ARG_ENCRYPT[0]) || arg.startsWith(ARG_ENCRYPT[1])) {
-			return ArgumentsType.Encrypt;
-		} else if(arg.startsWith(ARG_HELP[0]) || arg.startsWith(ARG_HELP[1])) {
-			return ArgumentsType.HelpInformation;
-		} else {
-			return ArgumentsType.None;
-		}	
-	}
 	
 	/**
 	 * 
