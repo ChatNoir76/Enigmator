@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         name="Enigmator"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="fr.chatnoir.enigmator.core.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         id="Enigmator"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="fr.chatnoir.enigmator.core.application"
+            name="Enigmator">
+         <property
+               name="windowImages"
+               value="eclipse16.png,eclipse32.png,eclipse48.png">
+         </property>
+         <property
+               name="aboutText"
+               value="%productBlurb">
+         </property>
+         <property
+               name="aboutImage"
+               value="eclipse_lg.png">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="c1bc1f">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="2,290,450,10">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="7,265,320,20">
+         </property>
+         <property
+               name="appName"
+               value="Enigmator">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+      </product>
+   </extension>
+
+</plugin>
