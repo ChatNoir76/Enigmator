@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
+import org.osgi.framework.Version;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +26,7 @@ public class Application implements IApplication {
 		// récupération de la liste des arguments
 		List<String> args = Arrays.asList(Platform.getApplicationArgs());
 		
-		// interprétation des arguments
+		// interprétatSion des arguments
 		ArgsProcessor processor = EnigmatorFactory.createArgsProcessor(args);
 		
 		if(!processor.isEmptyArg()) {
@@ -36,10 +37,10 @@ public class Application implements IApplication {
 				this.helpScreen();
 			} else if(processor.isArgDecrypt()) {
 				logger.info("Résultats du décryptage:");
-				logger.info(Service.uncrypt(processor.getStringValue()));
+				System.out.println(Service.uncrypt(processor.getStringValue()));
 			} else if(processor.isArgEncrypt()) {
 				logger.info("Résultats du Cryptage:");
-				logger.info(Service.encrypt(processor.getStringValue()));
+				System.out.println(Service.encrypt(processor.getStringValue()));
 			} else {
 				logger.warn("Pas d'action requise");
 			}
@@ -53,7 +54,26 @@ public class Application implements IApplication {
 	}
 	
 	private void helpScreen() {
+		String version;
+		try {
+			Version v = Platform.getProduct().getDefiningBundle().getVersion();
+			version = v.toString();
+		} catch(NullPointerException ex) {
+			version = "Development application";
+		}
 		
+		StringBuilder str = new StringBuilder("\nEnigmator [COMMANDE]\n\n");
+		str.append("COMMANDE:\n")
+			.append("-h / --help => Description des commandes\n")
+			.append("-d:<valeur> / --decrypt:<valeur> => Décryptage de <valeur>\n")
+			.append("-e:<valeur> / --encrypt:<valeur> => Cryptage de <valeur>\n\n")
+			.append("EXEMPLE:\n")
+			.append("Enigmator --help\n")
+			.append("Enigmator -e:quelque_chose_a_crypter_sans_espace\n")
+			.append("Enigmator --decrypt:GSdR-&]=XhEQdEyl[PnpJCqE/nfQTeIN`I}\n\n")
+			.append("VERSION:\n")
+			.append(version + "\n");
+		System.out.println(str.toString());
 	}
 
 	@Override
