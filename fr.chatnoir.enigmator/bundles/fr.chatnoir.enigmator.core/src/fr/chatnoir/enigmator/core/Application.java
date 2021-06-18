@@ -63,7 +63,9 @@ public class Application implements IApplication {
 		}
 		
 		StringBuilder str = new StringBuilder("\nEnigmator [COMMANDE]\n\n");
-		str.append("COMMANDE:\n")
+		
+		str.append("Caractères autorisés:[a-z] & [A-Z] & [0-9] & [_]\n\\n")
+			.append("COMMANDE:\n")
 			.append("-h / --help => Description des commandes\n")
 			.append("-d:<valeur> / --decrypt:<valeur> => Décryptage de <valeur>\n")
 			.append("-e:<valeur> / --encrypt:<valeur> => Cryptage de <valeur>\n\n")

@@ -2,7 +2,7 @@
 <feature
       id="fr.chatnoir.enigmator.feature"
       label="Feature"
-      version="1.0.0.qualifier">
+      version="1.1.0.qualifier">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -19,6 +19,9 @@
    <requires>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="fr.chatnoir.enigmator.model" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="ch.qos.logback.classic" version="1.2.3" match="greaterOrEqual"/>
+      <import plugin="ch.qos.logback.core" version="1.2.3" match="greaterOrEqual"/>
       <import plugin="org.slf4j.api"/>
       <import plugin="org.slf4j.api" version="1.7.30" match="equivalent"/>
    </requires>
@@ -27,28 +30,28 @@
          id="fr.chatnoir.enigmator.model"
          download-size="0"
          install-size="0"
-         version="1.0.0.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="ch.qos.logback.classic"
          download-size="0"
          install-size="0"
-         version="1.2.3.v20200428-2012"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="ch.qos.logback.core"
          download-size="0"
          install-size="0"
-         version="1.2.3.v20200428-2012"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="fr.chatnoir.enigmator.core"
          download-size="0"
          install-size="0"
-         version="1.0.0.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin

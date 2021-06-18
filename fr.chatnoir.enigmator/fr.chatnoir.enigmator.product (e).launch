@@ -17,7 +17,7 @@
     <booleanAttribute key="clearConfig" value="true"/>
     <booleanAttribute key="clearws" value="false"/>
     <booleanAttribute key="clearwslog" value="false"/>
-    <stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/fr.chatnoir.enigmator.product"/>
+    <stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/fr.chatnoir.enigmator.product (e)"/>
     <booleanAttribute key="default" value="false"/>
     <setAttribute key="deselected_workspace_bundles"/>
     <stringAttribute key="featureDefaultLocation" value="external"/>
@@ -26,7 +26,7 @@
     <stringAttribute key="location" value="${workspace_loc}/../runtime-fr.chatnoir.enigmator.product"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
     <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
-    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -e:coucou_mon_petit"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
     <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dosgi.requiredJavaVersion=11 -Dosgi.instance.area.default=@user.home/eclipse-workspace -XX:+UseG1GC -XX:+UseStringDeduplication -Xms256m -Xmx1024m"/>
     <stringAttribute key="pde.version" value="3.3"/>
@@ -41,6 +41,7 @@
     <setAttribute key="selected_target_bundles">
         <setEntry value="ch.qos.logback.classic*1.2.3.v20200428-2012@default:default"/>
         <setEntry value="ch.qos.logback.core*1.2.3.v20200428-2012@default:default"/>
+        <setEntry value="ch.qos.logback.slf4j*1.2.3.v20200428-2012@default:default"/>
         <setEntry value="com.ibm.icu@default:default"/>
         <setEntry value="com.sun.jna.platform@default:default"/>
         <setEntry value="com.sun.jna@default:default"/>
@@ -115,7 +116,6 @@
         <setEntry value="org.eclipse.swt.gtk.linux.x86_64@default:default"/>
         <setEntry value="org.eclipse.swt@default:default"/>
         <setEntry value="org.eclipse.urischeme@default:default"/>
-        <setEntry value="org.slf4j.api*1.7.30.v20200204-2150@default:default"/>
         <setEntry value="org.w3c.css.sac@default:default"/>
         <setEntry value="org.w3c.dom.events@default:default"/>
         <setEntry value="org.w3c.dom.smil@default:default"/>
@@ -130,5 +130,5 @@
     <booleanAttribute key="useCustomFeatures" value="true"/>
     <booleanAttribute key="useDefaultConfig" value="true"/>
     <booleanAttribute key="useDefaultConfigArea" value="true"/>
-    <booleanAttribute key="useProduct" value="false"/>
+    <booleanAttribute key="useProduct" value="true"/>
 </launchConfiguration>

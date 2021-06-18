@@ -12,8 +12,9 @@ public interface Enigmator extends MEnigmator
 	final static Logger logger = LoggerFactory.getLogger(Enigmator.class);
 	final static int ASCII_MIN = 33;
 	final static int ASCII_MAX = 125;
+	final static int NUMBER_MAX = 63;
 	final static int ACSII_UNKNOWN = 126;
-	final int[] BLOCK_CHAIN = {50,-34,91,-26,24,-79,84,-34,81,0};
+	final int[] MIXER_CHAIN = {5, -3, 7, -9, 5, -12, 9, -5, 6, -3, 4, -7, 2, -3, 4, 0, -1, 6, -7};
 	
 	default public Optional<String> run() {
 		logger.debug("init de la methode run de enigmator");
@@ -30,14 +31,16 @@ public interface Enigmator extends MEnigmator
 			for(int cursor = 0;cursor < this.getSource().length();cursor++) {
 				char c = this.getSource().toCharArray()[cursor];
 				logger.debug("Caractère : " + c);
-				int number = c;
-				logger.debug("ascii : " + number);
-				
-				if(number > ASCII_MIN - 1 && number < ASCII_MAX + 1) {
-					s += conv(number, cursor, signe);
-				} else {
-					s += (char) ACSII_UNKNOWN;
-				}
+				int ascii = c;
+				logger.debug("ascii : " + ascii);
+				int number = asciiToNumber(ascii);
+				logger.debug("number : " + number);
+				int mixedNumber = mixer(number, cursor, signe);
+				logger.debug("mixedNumber : " + mixedNumber);
+				int newascii = NumberToAscii(mixedNumber);
+				logger.debug("New ascii : " + newascii);
+				s += (char) newascii;
+
 			}
 		} else {
 			s = null;
@@ -45,18 +48,61 @@ public interface Enigmator extends MEnigmator
 
 		return Optional.ofNullable(s);
 	}
+	/**
+	 * Conversion d'un caractère ascii en nombre interprétable par le système
+	 * @param ascii
+	 * @return index de la char chain
+	 */
+	private int asciiToNumber(int ascii) {
+		if(ascii >= 48 && ascii <= 57) {
+			return ascii - 47; // 1 -> 10
+		} else if(ascii >= 65 && ascii <= 90) {
+			return ascii - 64 + 10; // 11 -> 36
+		} else if(ascii == 95){
+			return 63;
+		}else if(ascii >= 97 && ascii <= 122) {
+			return ascii - 96 + 36; // 37 -> 62
+		} else {
+			return 0; //inconnu
+		}
+	}
+	/**
+	 * Conversion d'un élément de la char chain en ascii
+	 * @param number
+	 * @return ascii
+	 */
+	private int NumberToAscii(int number) {
+		if(number >= 1 && number <= 10) {
+			return number + 47; // 48 -> 57
+		} else if(number >= 11 && number <= 36) {
+			return number + 64 - 10; // 65 -> 90
+		} else if(number == 63){
+			return 95;
+		} else if(number >= 37 && number <= 122) {
+			return number + 96 - 36; // 97 -> 122
+		} else {
+			return 0; //inconnu
+		}
+	}
 	
-	private char conv(int number, int counter, int signe) {
-		int ascii = (number + (BLOCK_CHAIN[counter % BLOCK_CHAIN.length] * signe));
+	/**
+	 * Transforme le number d'après les règles de la mixer_chain
+	 * @param number
+	 * @param counter
+	 * @param signe
+	 * @return
+	 */
+	private int mixer(int number, int counter, int signe) {
+		int mixedNumber = (number + (MIXER_CHAIN[counter % MIXER_CHAIN.length] * signe));
 		
-		if(ascii < ASCII_MIN) {
-			ascii += ASCII_MAX - ASCII_MIN;
-		} else if(ascii > ASCII_MAX) {
-			ascii += ASCII_MIN - ASCII_MAX;
+		while(mixedNumber < 1) {
+			mixedNumber += NUMBER_MAX;
+		}
+		if(mixedNumber > NUMBER_MAX) {
+			mixedNumber %= NUMBER_MAX;
 		}
 		
-		logger.debug("ascii modif : " + ascii);
-		return (char) ascii;
+		return mixedNumber;
 	}
 	
 }
