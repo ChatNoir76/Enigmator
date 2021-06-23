@@ -25,7 +25,8 @@
     <booleanAttribute key="includeOptional" value="true"/>
     <stringAttribute key="location" value="${workspace_loc}/../runtime-fr.chatnoir.enigmator.product"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
-    <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -d:hl0Tti8huk3igqmt"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
     <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dosgi.requiredJavaVersion=11 -Dosgi.instance.area.default=@user.home/eclipse-workspace -XX:+UseG1GC -XX:+UseStringDeduplication -Xms256m -Xmx1024m"/>
@@ -34,7 +35,6 @@
     <stringAttribute key="productFile" value="/fr.chatnoir.enigmator.product/fr.chatnoir.enigmator.product"/>
     <setAttribute key="selected_features">
         <setEntry value="fr.chatnoir.enigmator.feature:default"/>
-        <setEntry value="org.eclipse.e4.rcp:default"/>
         <setEntry value="org.eclipse.emf.common:default"/>
         <setEntry value="org.eclipse.emf.ecore:default"/>
     </setAttribute>
