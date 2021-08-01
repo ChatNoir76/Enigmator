@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
-import fr.chatnoir.enigmator.core.Activator;
+import fr.chatnoir.enigmator.Activator;
 import fr.chatnoir.enigmator.model.Enigmator;
 import fr.chatnoir.enigmator.model.ModelFactory;
 import fr.chatnoir.enigmator.model.operation;

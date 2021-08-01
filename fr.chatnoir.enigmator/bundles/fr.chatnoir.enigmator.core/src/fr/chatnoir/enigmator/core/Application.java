@@ -2,6 +2,7 @@ package fr.chatnoir.enigmator.core;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.equinox.app.IApplication;
@@ -19,10 +20,19 @@ import fr.chatnoir.enigmator.service.Service;
 public class Application implements IApplication {
 
 	private static final Logger logger = LoggerFactory.getLogger(Application.class);
+	private String version;
 	
 	@Override
 	public Object start(IApplicationContext context) throws Exception {
 
+		if(getVersion().isPresent()) {
+			version = getVersion().get().toString();
+		}else {
+			version = "Development application";
+		}
+		
+		logger.info("*** Lancement de Enigmator v" + version + " ***");
+		
 		// récupération de la liste des arguments
 		List<String> args = Arrays.asList(Platform.getApplicationArgs());
 		
@@ -36,36 +46,31 @@ public class Application implements IApplication {
 			} else if(processor.isHelpInformation()) {
 				this.helpScreen();
 			} else if(processor.isArgDecrypt()) {
+				logger.info("Opération : Décryptage de " + processor.getStringValue());
 				logger.info("Résultats du décryptage:");
-				System.out.println(Service.uncrypt(processor.getStringValue()));
+				logger.info(Service.uncrypt(processor.getStringValue()));
 			} else if(processor.isArgEncrypt()) {
+				logger.info("Opération : Cryptage de " + processor.getStringValue());
 				logger.info("Résultats du Cryptage:");
-				System.out.println(Service.encrypt(processor.getStringValue()));
+				logger.info(Service.encrypt(processor.getStringValue()));
 			} else {
 				logger.warn("Pas d'action requise");
 			}
-			return IApplication.EXIT_OK;
 		} else {
-			logger.info("*** Application Enigmator ***");
 			logger.info("essayer avec l'argument : --help");
-			return IApplication.EXIT_OK;
 		}
-
+		logger.info("*** fin de l'opération ***");
+		return IApplication.EXIT_OK;
 	}
-	
+	/**
+	 * Visualisation de l'aide
+	 */
 	private void helpScreen() {
-		String version;
-		try {
-			Version v = Platform.getProduct().getDefiningBundle().getVersion();
-			version = v.toString();
-		} catch(NullPointerException ex) {
-			version = "Development application";
-		}
 		
-		StringBuilder str = new StringBuilder("\nEnigmator [COMMANDE]\n\n");
+		StringBuilder str = new StringBuilder("Activation de la command Help...\nEnigmator [COMMANDE]\n\n");
 		
-		str.append("Caractères autorisés:[a-z] & [A-Z] & [0-9] & [_]\n\\n")
-			.append("COMMANDE:\n")
+		str.append("Caractères autorisés:[a-z] & [A-Z] & [0-9] & [_]\n\n")
+			.append("COMMANDE: (résultat dans le répertoire logger)\n")
 			.append("-h / --help => Description des commandes\n")
 			.append("-d:<valeur> / --decrypt:<valeur> => Décryptage de <valeur>\n")
 			.append("-e:<valeur> / --encrypt:<valeur> => Cryptage de <valeur>\n\n")
@@ -75,7 +80,19 @@ public class Application implements IApplication {
 			.append("Enigmator --decrypt:GSdR-&]=XhEQdEyl[PnpJCqE/nfQTeIN`I}\n\n")
 			.append("VERSION:\n")
 			.append(version + "\n");
-		System.out.println(str.toString());
+		logger.info(str.toString());
+	}
+	/**
+	 * Récupère la version de l'application
+	 * @return La version du la feature / plugin
+	 */
+	private Optional<Version> getVersion() {
+		try {
+			Version v = Platform.getProduct().getDefiningBundle().getVersion();
+			return Optional.ofNullable(v);
+		} catch(NullPointerException ex) {
+			return Optional.ofNullable(null);
+		}
 	}
 
 	@Override
