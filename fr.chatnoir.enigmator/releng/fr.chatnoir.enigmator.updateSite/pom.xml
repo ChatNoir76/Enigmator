@@ -3,11 +3,11 @@
   <parent>
 		<groupId>fr.chatnoir.enigmator</groupId>
 		<artifactId>releng</artifactId>
-		<version>1.1.1-SNAPSHOT</version>
+		<version>1.2.1-SNAPSHOT</version>
 	</parent>
   
   <artifactId>fr.chatnoir.enigmator.updateSite</artifactId>
   <packaging>eclipse-repository</packaging>
-  <version>1.1.1-SNAPSHOT</version>
+  <version>1.2.1-SNAPSHOT</version>
   <groupId>fr.chatnoir.enigmator</groupId>
 </project>

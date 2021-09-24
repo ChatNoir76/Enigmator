@@ -1,0 +1,8 @@
+target "eclipse"
+
+location "https://download.eclipse.org/eclipse/updates/4.22" eclipse {
+	org.eclipse.equinox.sdk.feature.group [3.23.200,4.0.0)
+	org.eclipse.platform.sdk [4.22.0,5.0.0)
+	org.eclipse.emf.edit.feature.group
+}
+

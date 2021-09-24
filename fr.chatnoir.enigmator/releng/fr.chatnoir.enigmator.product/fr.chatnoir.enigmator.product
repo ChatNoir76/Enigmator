@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Enigmator" uid="enigmator" id="fr.chatnoir.enigmator.core.Enigmator" application="fr.chatnoir.enigmator.core.application" version="1.1.1.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Enigmator" uid="enigmator" id="fr.chatnoir.enigmator.core.Enigmator" application="fr.chatnoir.enigmator.core.application" version="1.2.1.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="eclipse_lg.png"/>
@@ -80,6 +80,7 @@
    </features>
 
    <configurations>
+      <plugin id="fr.chatnoir.enigmator.core" autoStart="false" startLevel="0" />
       <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />

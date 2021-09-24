@@ -3,6 +3,7 @@
   <viewpoint:DAnalysis uid="_0hvxQGD2EeuAvejuPbCBZA" selectedViews="_0_I34GD2EeuAvejuPbCBZA" version="14.3.1.202003261200">
     <semanticResources>model.ecore</semanticResources>
     <semanticResources>model.genmodel</semanticResources>
+    <semanticResources>Enigmator.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_0_I34GD2EeuAvejuPbCBZA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_1Dkr8GD2EeuAvejuPbCBZA" name="model" repPath="#_1B7GIGD2EeuAvejuPbCBZA" changeId="8b6968be-6560-49a0-ad89-80d8ef35d08e">

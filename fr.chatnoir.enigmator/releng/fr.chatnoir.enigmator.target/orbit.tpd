@@ -1,0 +1,10 @@
+target "orbit"
+
+location "https://download.eclipse.org/tools/orbit/downloads/drops/R20201130205003/repository" orbit {
+	ch.qos.logback.classic [1.2.3,2.0.0)
+	ch.qos.logback.core [1.2.3,2.0.0)
+	ch.qos.logback.slf4j [1.2.3,2.0.0)
+	org.apache.commons.logging
+	org.apache.log4j 
+	org.apache.logging.log4j
+}

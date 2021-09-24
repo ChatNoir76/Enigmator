@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Service
+Bundle-SymbolicName: fr.chatnoir.enigmator.service
+Bundle-Version: 1.2.1.qualifier
+Bundle-Activator: fr.chatnoir.enigmator.service.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ ch.qos.logback.classic;bundle-version="1.2.3",
+ ch.qos.logback.core;bundle-version="1.2.3",
+ org.slf4j.api;bundle-version="1.7.30"
+Bundle-RequiredExecutionEnvironment: JavaSE-15
+Automatic-Module-Name: fr.chatnoir.enigmator.service
+Bundle-ActivationPolicy: lazy
+Export-Package: fr.chatnoir.enigmator.service;uses:="org.osgi.framework",
+ fr.chatnoir.enigmator.service.exception
+Import-Package: org.slf4j;version="1.7.30",
+ org.slf4j.spi;version="1.7.30"

@@ -11,8 +11,8 @@
    <extension
          point="org.eclipse.emf.ecore.generated_package">
       <package
-            class="fr.chatnoir.enigmator.model.MModelPackage"
-            uri="http://www.example.org/model">
+            uri="http://www.example.org/model"
+            class="fr.chatnoir.enigmator.model.MModelPackage">
       </package>
    </extension>
 

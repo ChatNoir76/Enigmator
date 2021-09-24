@@ -2,7 +2,9 @@
  */
 package fr.chatnoir.enigmator.model;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
+
+import fr.chatnoir.enigmator.service.exception.EnigmatorException;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,60 +15,32 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.chatnoir.enigmator.model.MEnigmator#getSource <em>Source</em>}</li>
- *   <li>{@link fr.chatnoir.enigmator.model.MEnigmator#getTypeOperation <em>Type Operation</em>}</li>
+ *   <li>{@link fr.chatnoir.enigmator.model.MEnigmator#getDisques <em>Disques</em>}</li>
  * </ul>
  *
  * @see fr.chatnoir.enigmator.model.MModelPackage#getEnigmator()
  * @model
  * @generated
  */
-public interface MEnigmator extends EObject {
+public interface MEnigmator extends LabeledClass, Auteur, About {
 	/**
-	 * Returns the value of the '<em><b>Source</b></em>' attribute.
+	 * Returns the value of the '<em><b>Disques</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.chatnoir.enigmator.model.Disque}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source</em>' attribute.
-	 * @see #setSource(String)
-	 * @see fr.chatnoir.enigmator.model.MModelPackage#getEnigmator_Source()
-	 * @model
+	 * @return the value of the '<em>Disques</em>' containment reference list.
+	 * @see fr.chatnoir.enigmator.model.MModelPackage#getEnigmator_Disques()
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getSource();
+	EList<Disque> getDisques();
 
 	/**
-	 * Sets the value of the '{@link fr.chatnoir.enigmator.model.MEnigmator#getSource <em>Source</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source</em>' attribute.
-	 * @see #getSource()
+	 * @model exceptions="fr.chatnoir.enigmator.model.EnigmatorException"
 	 * @generated
 	 */
-	void setSource(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Type Operation</b></em>' attribute.
-	 * The literals are from the enumeration {@link fr.chatnoir.enigmator.model.operation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type Operation</em>' attribute.
-	 * @see fr.chatnoir.enigmator.model.operation
-	 * @see #setTypeOperation(operation)
-	 * @see fr.chatnoir.enigmator.model.MModelPackage#getEnigmator_TypeOperation()
-	 * @model
-	 * @generated
-	 */
-	operation getTypeOperation();
-
-	/**
-	 * Sets the value of the '{@link fr.chatnoir.enigmator.model.MEnigmator#getTypeOperation <em>Type Operation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type Operation</em>' attribute.
-	 * @see fr.chatnoir.enigmator.model.operation
-	 * @see #getTypeOperation()
-	 * @generated
-	 */
-	void setTypeOperation(operation value);
+	String execute(Operation operation, String source) throws EnigmatorException;
 
 } // MEnigmator

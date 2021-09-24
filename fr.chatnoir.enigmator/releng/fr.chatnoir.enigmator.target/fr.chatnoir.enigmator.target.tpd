@@ -1,0 +1,13 @@
+target "fr.chatnoir.enigmator.target"
+
+environment JavaSE-15
+
+with requirements
+
+location "path:${project_loc:fr.chatnoir.enigmator}/externalSources" {
+	picocli-4.6.3.jar 
+}
+
+include "eclipse.tpd"
+include "justj.tpd"
+include "orbit.tpd"
