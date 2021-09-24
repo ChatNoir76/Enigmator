@@ -1,120 +1,104 @@
 package fr.chatnoir.enigmator.core.arguments;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import fr.chatnoir.enigmator.service.EnigmatorException;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
- * Classe de classement des arguments de l'application
+ * Classe de création de processus en fonction des arguments de l'application
  * @author chatnoir
  *
  */
 public class ArgsProcessor {
 
-	private static final Logger logger = LoggerFactory.getLogger(ArgsProcessor.class);
+	private final static char ARG_SEPARATOR = ':';
+	private final static char ARG_START = '-';
 	
-	private final static String SEPARATOR = ":";
+	private final static String[] ARG_DECRYPT = {"d", "decrypt"};
+	private final static String[] ARG_DECRYPT_FILE = {"fd", "filedecrypt"};
+	private final static String[] ARG_ENCRYPT = {"e", "encrypt"};
+	private final static String[] ARG_ENCRYPT_FILE = {"fe", "fileencrypt"};
+	private final static String[] ARG_HELP = {"h", "help"};
 	
-	private final static String[] ARG_DECRYPT = {"-d" + SEPARATOR, "--decrypt" + SEPARATOR};
-	private final static String[] ARG_ENCRYPT = {"-e" + SEPARATOR, "--encrypt" + SEPARATOR};
-	private final static String[] ARG_HELP = {"-h", "--help"};
-	
-	private boolean helpInformation;
-	private boolean argDecrypt;
-	private boolean argEncrypt;
-	private boolean emptyArg;
-	
-	private String stringValue;
-	private String errorMessage;
-	
-	public boolean isHelpInformation() {
-		return helpInformation;
-	}
+	private ArrayList<String> decrypt = new ArrayList<String>();
+	private ArrayList<String> encrypt = new ArrayList<String>();
+	private ArrayList<String> filedecrypt = new ArrayList<String>();
+	private ArrayList<String> fileencrypt = new ArrayList<String>();
+	private ArrayList<String> help = new ArrayList<String>();
 
-	public boolean isArgDecrypt() {
-		return argDecrypt;
-	}
-
-	public boolean isArgEncrypt() {
-		return argEncrypt;
-	}
-
-	public String getStringValue() {
-		return stringValue;
+	private Map<ArgsType, String> liste;
+	
+	public Map<ArgsType, String> getListe() {
+		return liste;
 	}
 	
-	public boolean isErrorMessage() {
-		return errorMessage != null;
-	}
-
-	public String getErrorMessage() {
-		return errorMessage;
-	}
-
-	public boolean isEmptyArg() {
-		return emptyArg;
+	private void initialize() {
+		decrypt.addAll(Arrays.asList(ARG_DECRYPT));
+		encrypt.addAll(Arrays.asList(ARG_ENCRYPT));
+		help.addAll(Arrays.asList(ARG_HELP));
+		filedecrypt.addAll(Arrays.asList(ARG_DECRYPT_FILE));
+		fileencrypt.addAll(Arrays.asList(ARG_ENCRYPT_FILE));
 	}
 
 	public ArgsProcessor(List<String> args) {
+		liste = new HashMap<ArgsType, String>();
+		this.initialize();
 		
+		StringBuilder Delimiter = new StringBuilder();
+		Delimiter.append(ARG_SEPARATOR);
+		Delimiter.append(ARG_START);
+				
 		if(!args.isEmpty()) {
-			args.forEach(arg -> {
-				try {
-					getArgumentType(arg);
-				} catch (EnigmatorException e) {
-					this.errorMessage = e.getMessage();
+			args.forEach(argument -> {
+				//traitement des arguments
+				StringTokenizer strTok = new StringTokenizer(argument, Delimiter.toString());
+				int iterator = strTok.countTokens();
+				//initialisation des variables
+				ArgsType type = ArgsType.None;
+				String key = null;
+				String value = null;
+				
+				if(iterator == 2) {
+					key = strTok.nextToken();
+					value = strTok.nextToken();
+					
+					if(decrypt.contains(key)) {
+						type = ArgsType.Decrypt;
+					} else if(encrypt.contains(key)) {
+						type = ArgsType.Encrypt;
+					} else if(filedecrypt.contains(key)) {
+						type = ArgsType.DecryptFromFile;
+					} else if(fileencrypt.contains(key)) {
+						type = ArgsType.EncryptFromFile;
+					}
+												
+				} else if(iterator == 1) {
+					key = strTok.nextToken();
+					if(help.contains(key)) {
+						type = ArgsType.HelpInformation;
+					}
 				}
+				liste.put(type, value);
 			});
-		} else {
-			logger.debug("il n'y a pas d'argument");
-			this.emptyArg = true;
-		}
-	}
-	
-	private void getArgumentType(String arg) throws EnigmatorException{
-		
-		if(arg.startsWith(ARG_DECRYPT[0]) || arg.startsWith(ARG_DECRYPT[1])) {
-			
-			logger.debug("argument de décryptage : " + arg);
-			if(!argEncrypt) {
-				stringValue = extractStringValue(arg);
-				argDecrypt = true;
-			} else {
-				logger.warn("Argument de décryptage ignoré : " + arg);
-			}
-			
-		} else if(arg.startsWith(ARG_ENCRYPT[0]) || arg.startsWith(ARG_ENCRYPT[1])) {
-			
-			logger.debug("argument de cryptage : " + arg);
-			if(!argDecrypt) {
-				stringValue = extractStringValue(arg);
-				argEncrypt = true;
-			} else {
-				logger.warn("Argument de cryptage ignoré : " + arg);
-			}
-			
-			
-		} else if(arg.startsWith(ARG_HELP[0]) || arg.startsWith(ARG_HELP[1])) {
-			
-			logger.debug("Argument Help : " + arg);
-			this.helpInformation = true;
-			
-		} else {
-			logger.warn("Argument inconnu : " + arg);
-		}	
-	}
-	
-	private String extractStringValue(String arg) throws EnigmatorException {
-		
-		if(arg.contains(SEPARATOR)) {
-			return arg.split(SEPARATOR, 2)[1];
-		} else {
-			throw new EnigmatorException("Erreur lors du traitement de l'argument : " + arg);
-		}	
-		
+		} 
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

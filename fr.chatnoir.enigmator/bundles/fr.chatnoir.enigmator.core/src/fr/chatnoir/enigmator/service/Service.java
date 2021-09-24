@@ -8,15 +8,13 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
+import org.osgi.framework.Version;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
 import fr.chatnoir.enigmator.Activator;
-import fr.chatnoir.enigmator.model.Enigmator;
-import fr.chatnoir.enigmator.model.ModelFactory;
-import fr.chatnoir.enigmator.model.operation;
 
 public class Service {
 	
@@ -38,20 +36,17 @@ public class Service {
         jc.doConfigure(logbackConfigFileUrl.openStream());
     }
 	
-	private static String execute(String input, operation o){
-		Enigmator e = ModelFactory.eINSTANCE.createEnigmator();
-		e.setSource(input);
-		e.setTypeOperation(o);
-		Optional<String> opt =  e.run();
-		return opt.isPresent() ? opt.get() : "n/a";
-	}
-	
-	public static String encrypt(String input) {
-		return execute(input, operation.CRYPT);
-	}
-	
-	public static String uncrypt(String input) {
-		return execute(input, operation.UNCRYPT);
+	/**
+	 * Récupère la version de l'application
+	 * @return La version du la feature / plugin
+	 */
+	public static Optional<Version> getVersion() {
+		try {
+			Version v = Platform.getProduct().getDefiningBundle().getVersion();
+			return Optional.ofNullable(v);
+		} catch(NullPointerException ex) {
+			return Optional.ofNullable(null);
+		}
 	}
 	
 }
