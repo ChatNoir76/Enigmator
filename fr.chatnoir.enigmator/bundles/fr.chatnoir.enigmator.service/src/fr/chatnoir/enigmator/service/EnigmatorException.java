@@ -5,7 +5,7 @@ public class EnigmatorException extends Exception {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -915114707565207125L;
 
 	public EnigmatorException() {
 		// TODO Auto-generated constructor stub

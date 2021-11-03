@@ -14,9 +14,10 @@ import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
-import fr.chatnoir.enigmator.Activator;
 
 public class Service {
+	
+	public final static String PLUGIN_ID = "fr.chatnoir.enigmator.core";
 	
 	/**
 	 * 
@@ -24,7 +25,7 @@ public class Service {
 	 * @throws IOException
 	 */
 	public static void configureLogbackInBundle() throws JoranException, IOException {
-		Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
+		Bundle bundle = Platform.getBundle(PLUGIN_ID);
 		LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
         JoranConfigurator jc = new JoranConfigurator();
         jc.setContext(context);
@@ -37,7 +38,7 @@ public class Service {
     }
 	
 	/**
-	 * Récupère la version de l'application
+	 * RÃ©cupÃ¨re la version de l'application
 	 * @return La version du la feature / plugin
 	 */
 	public static Optional<Version> getVersion() {

@@ -50,7 +50,7 @@ public abstract class EnigmatorProcessor extends AbstractProcessor implements Ru
 						sb.append(line);      
 						sb.append(" ");     
 					}
-					return Optional.ofNullable(sb.toString());
+					return Optional.ofNullable(sb.toString().trim());
 				} catch (IOException e) {
 					LOGGER.error("Erreur lors de la mise en cache du fichier", e);
 				}

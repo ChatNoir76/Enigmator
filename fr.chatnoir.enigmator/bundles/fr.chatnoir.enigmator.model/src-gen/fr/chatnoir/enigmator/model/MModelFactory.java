@@ -31,6 +31,42 @@ public interface MModelFactory extends EFactory {
 	Enigmator createEnigmator();
 
 	/**
+	 * Returns a new object of class '<em>Disque</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Disque</em>'.
+	 * @generated
+	 */
+	Disque createDisque();
+
+	/**
+	 * Returns a new object of class '<em>Labeled Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Labeled Class</em>'.
+	 * @generated
+	 */
+	LabeledClass createLabeledClass();
+
+	/**
+	 * Returns a new object of class '<em>Auteur</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Auteur</em>'.
+	 * @generated
+	 */
+	Auteur createAuteur();
+
+	/**
+	 * Returns a new object of class '<em>About</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>About</em>'.
+	 * @generated
+	 */
+	About createAbout();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

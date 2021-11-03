@@ -1,12 +1,19 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: fr.chatnoir.enigmator.model
+Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.chatnoir.enigmator.model;singleton:=true
 Bundle-Version: 1.2.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: fr.chatnoir.enigmator.model,
+ fr.chatnoir.enigmator.model.impl,
+ fr.chatnoir.enigmator.model.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.core.runtime
-Automatic-Module-Name: fr.chatnoir.enigmator.model
-Bundle-RequiredExecutionEnvironment: JavaSE-15
-Export-Package: fr.chatnoir.enigmator.model
+ org.eclipse.core.runtime,
+ fr.chatnoir.enigmator.service
 Import-Package: org.slf4j;version="1.7.30",
  org.slf4j.spi;version="1.7.30"
+Automatic-Module-Name: fr.chatnoir.enigmator.model
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-15
