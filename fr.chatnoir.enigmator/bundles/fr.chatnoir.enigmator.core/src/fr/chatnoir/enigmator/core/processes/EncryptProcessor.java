@@ -1,14 +1,14 @@
 package fr.chatnoir.enigmator.core.processes;
 
 import java.io.File;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import fr.chatnoir.enigmator.model.Enigmator;
 import fr.chatnoir.enigmator.model.ModelFactory;
-import fr.chatnoir.enigmator.model.operation;
+import fr.chatnoir.enigmator.model.Operation;
+import fr.chatnoir.enigmator.service.EnigmatorException;
 
 public class EncryptProcessor extends EnigmatorProcessor {
 
@@ -25,12 +25,11 @@ public class EncryptProcessor extends EnigmatorProcessor {
 	@Override
 	public void run() {
 		LOGGER.info("Cryptage");
-		Enigmator e = ModelFactory.eINSTANCE.createEnigmator();
-		e.setSource(this.getSource());
-		e.setTypeOperation(operation.CRYPT);
-		Optional<String> opt =  e.run();
-		if(opt.isPresent()) {
-			resultat = opt.get();
+		Enigmator e = ModelFactory.eINSTANCE.createFullEncodingEnigmator();
+		try {
+			resultat = e.execute(Operation.CRYPTAGE, this.getSource());
+		} catch (EnigmatorException e1) {
+			LOGGER.error("Erreur lors de l'opération de cryptage", e1);
 		}
 	}
 }

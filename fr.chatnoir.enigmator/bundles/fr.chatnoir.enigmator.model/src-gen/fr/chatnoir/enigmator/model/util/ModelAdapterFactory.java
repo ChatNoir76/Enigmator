@@ -72,6 +72,26 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseDisque(Disque object) {
+			return createDisqueAdapter();
+		}
+
+		@Override
+		public Adapter caseLabeledClass(LabeledClass object) {
+			return createLabeledClassAdapter();
+		}
+
+		@Override
+		public Adapter caseAuteur(Auteur object) {
+			return createAuteurAdapter();
+		}
+
+		@Override
+		public Adapter caseAbout(About object) {
+			return createAboutAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -101,6 +121,62 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEnigmatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.chatnoir.enigmator.model.MDisque <em>Disque</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.chatnoir.enigmator.model.MDisque
+	 * @generated
+	 */
+	public Adapter createDisqueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.chatnoir.enigmator.model.MLabeledClass <em>Labeled Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.chatnoir.enigmator.model.MLabeledClass
+	 * @generated
+	 */
+	public Adapter createLabeledClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.chatnoir.enigmator.model.MAuteur <em>Auteur</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.chatnoir.enigmator.model.MAuteur
+	 * @generated
+	 */
+	public Adapter createAuteurAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.chatnoir.enigmator.model.MAbout <em>About</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.chatnoir.enigmator.model.MAbout
+	 * @generated
+	 */
+	public Adapter createAboutAdapter() {
 		return null;
 	}
 

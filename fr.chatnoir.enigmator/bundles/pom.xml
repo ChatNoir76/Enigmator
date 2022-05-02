@@ -11,7 +11,8 @@
 	
 	<modules>
 		<module>fr.chatnoir.enigmator.core</module>
-		<module>fr.chatnoir.enigmator.model</module>		
+		<module>fr.chatnoir.enigmator.model</module>
+		<module>fr.chatnoir.enigmator.service</module>		
 	</modules>
 
 </project>

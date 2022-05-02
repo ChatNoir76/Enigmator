@@ -4,6 +4,8 @@ package fr.chatnoir.enigmator.model.impl;
 
 import fr.chatnoir.enigmator.model.*;
 
+import fr.chatnoir.enigmator.service.EnigmatorException;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -59,6 +61,14 @@ public class MModelFactoryImpl extends EFactoryImpl implements MModelFactory {
 		switch (eClass.getClassifierID()) {
 		case MModelPackage.ENIGMATOR:
 			return createEnigmator();
+		case MModelPackage.DISQUE:
+			return createDisque();
+		case MModelPackage.LABELED_CLASS:
+			return createLabeledClass();
+		case MModelPackage.AUTEUR:
+			return createAuteur();
+		case MModelPackage.ABOUT:
+			return createAbout();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -73,7 +83,9 @@ public class MModelFactoryImpl extends EFactoryImpl implements MModelFactory {
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
 		case MModelPackage.OPERATION:
-			return createoperationFromString(eDataType, initialValue);
+			return createOperationFromString(eDataType, initialValue);
+		case MModelPackage.ENIGMATOR_EXCEPTION:
+			return createEnigmatorExceptionFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -88,7 +100,9 @@ public class MModelFactoryImpl extends EFactoryImpl implements MModelFactory {
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
 		case MModelPackage.OPERATION:
-			return convertoperationToString(eDataType, instanceValue);
+			return convertOperationToString(eDataType, instanceValue);
+		case MModelPackage.ENIGMATOR_EXCEPTION:
+			return convertEnigmatorExceptionToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -109,8 +123,48 @@ public class MModelFactoryImpl extends EFactoryImpl implements MModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operation createoperationFromString(EDataType eDataType, String initialValue) {
-		operation result = operation.get(initialValue);
+	public Disque createDisque() {
+		DisqueImpl disque = new DisqueImpl();
+		return disque;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LabeledClass createLabeledClass() {
+		LabeledClassImpl labeledClass = new LabeledClassImpl();
+		return labeledClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Auteur createAuteur() {
+		AuteurImpl auteur = new AuteurImpl();
+		return auteur;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public About createAbout() {
+		AboutImpl about = new AboutImpl();
+		return about;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operation createOperationFromString(EDataType eDataType, String initialValue) {
+		Operation result = Operation.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -122,8 +176,26 @@ public class MModelFactoryImpl extends EFactoryImpl implements MModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertoperationToString(EDataType eDataType, Object instanceValue) {
+	public String convertOperationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnigmatorException createEnigmatorExceptionFromString(EDataType eDataType, String initialValue) {
+		return (EnigmatorException) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEnigmatorExceptionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

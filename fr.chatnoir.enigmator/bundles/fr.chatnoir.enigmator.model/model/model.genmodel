@@ -11,14 +11,36 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Model" basePackage="fr.chatnoir.enigmator" disposableProviderFactory="true"
       ecorePackage="model.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//operation">
-      <genEnumLiterals ecoreEnumLiteral="model.ecore#//operation/none"/>
-      <genEnumLiterals ecoreEnumLiteral="model.ecore#//operation/crypt"/>
-      <genEnumLiterals ecoreEnumLiteral="model.ecore#//operation/uncrypt"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//Operation">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operation/cryptage"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Operation/decryptage"/>
     </genEnums>
+    <genDataTypes ecoreDataType="model.ecore#//EnigmatorException"/>
     <genClasses ecoreClass="model.ecore#//Enigmator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Enigmator/source"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Enigmator/typeOperation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Enigmator/disques"/>
+      <genOperations ecoreOperation="model.ecore#//Enigmator/execute">
+        <genParameters ecoreParameter="model.ecore#//Enigmator/execute/operation"/>
+        <genParameters ecoreParameter="model.ecore#//Enigmator/execute/source"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Disque">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Disque/intervalle"/>
+      <genOperations ecoreOperation="model.ecore#//Disque/getChain"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//LabeledClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//LabeledClass/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Auteur">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Auteur/nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Auteur/prenom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Auteur/mail"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//About">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//About/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//About/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//About/major"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//About/minor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//About/micro"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

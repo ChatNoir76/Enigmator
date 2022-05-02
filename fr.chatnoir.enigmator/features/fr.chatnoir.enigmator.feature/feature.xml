@@ -21,6 +21,7 @@
       <import plugin="org.slf4j.api"/>
       <import plugin="ch.qos.logback.classic" version="1.2.3" match="greaterOrEqual"/>
       <import plugin="ch.qos.logback.core" version="1.2.3" match="greaterOrEqual"/>
+      <import plugin="fr.chatnoir.enigmator.service" version="1.2.0" match="greaterOrEqual"/>
       <import plugin="org.slf4j.api" version="1.7.30" match="equivalent"/>
       <import plugin="org.eclipse.osgi" version="3.13.0" match="compatible"/>
       <import plugin="org.eclipse.equinox.common" version="3.14.0" match="compatible"/>
@@ -97,6 +98,13 @@
 
    <plugin
          id="org.eclipse.equinox.simpleconfigurator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.chatnoir.enigmator.service"
          download-size="0"
          install-size="0"
          version="0.0.0"

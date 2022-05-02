@@ -70,6 +70,42 @@ public class ModelSwitch<T> extends Switch<T> {
 			Enigmator enigmator = (Enigmator) theEObject;
 			T result = caseEnigmator(enigmator);
 			if (result == null)
+				result = caseLabeledClass(enigmator);
+			if (result == null)
+				result = caseAuteur(enigmator);
+			if (result == null)
+				result = caseAbout(enigmator);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MModelPackage.DISQUE: {
+			Disque disque = (Disque) theEObject;
+			T result = caseDisque(disque);
+			if (result == null)
+				result = caseLabeledClass(disque);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MModelPackage.LABELED_CLASS: {
+			LabeledClass labeledClass = (LabeledClass) theEObject;
+			T result = caseLabeledClass(labeledClass);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MModelPackage.AUTEUR: {
+			Auteur auteur = (Auteur) theEObject;
+			T result = caseAuteur(auteur);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MModelPackage.ABOUT: {
+			About about = (About) theEObject;
+			T result = caseAbout(about);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -90,6 +126,66 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEnigmator(Enigmator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Disque</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Disque</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDisque(Disque object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Labeled Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Labeled Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLabeledClass(LabeledClass object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Auteur</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Auteur</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAuteur(Auteur object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>About</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>About</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbout(About object) {
 		return null;
 	}
 
