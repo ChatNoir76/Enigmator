@@ -9,6 +9,7 @@ import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 
 import fr.chatnoir.enigmator.core.arguments.ArgsProcessor;
+import fr.chatnoir.enigmator.core.arguments.ArgsType;
 import fr.chatnoir.enigmator.core.processes.AbstractProcessor;
 import fr.chatnoir.enigmator.response.Response;
 import fr.chatnoir.enigmator.response.Responser;
@@ -24,9 +25,10 @@ public class Application implements IApplication {
 		// récupération de la liste des arguments
 		List<String> args = Arrays.asList(Platform.getApplicationArgs());
 		ArgsProcessor arguments = new ArgsProcessor(args);
-		arguments.getListe().forEach((t,s) -> {
-			AbstractProcessor process = null;
-			switch(t) {
+		ArgsType t = arguments.getType();
+		String s = arguments.getArg();
+		AbstractProcessor process = null;
+		switch(t) {
 			case Decrypt:
 				Responser.eInstance().setAsConsole();
 				process = EnigmatorFactory.getDecryptProcess(s);
@@ -49,12 +51,11 @@ public class Application implements IApplication {
 				break;
 			default:
 				break;	
-			}
-			if(process != null) {
-				process.run();
-				Response.eInstance().sendResponse(process.getResult());
-			}
-		});
+		}
+		if(process != null) {
+			process.run();
+			Response.eInstance().sendResponse(process.getResult());
+		}
 		
 		return IApplication.EXIT_OK;
 	}

@@ -32,20 +32,26 @@ public class HelpProcessor extends AbstractProcessor {
 
 	@Override
 	public String getResult() {
-		StringBuilder str = new StringBuilder("Activation de la command Help...\nEnigmator [COMMANDE]\n\n");
+		StringBuilder str = new StringBuilder("Help menu activation...\n\nUsage:\n\nEnigmator <command>\n\n");
 		
-		str.append("Caractères autorisés:[a-zA-Z0-9] & [_]\n\n")
-			.append("COMMANDE: (résultat dans le répertoire logger)\n")
-			.append("-h / --help => Description des commandes\n")
-			.append("-d:<valeur> / --decrypt:<valeur> => Décryptage de <valeur>\n")
-			.append("-e:<valeur> / --encrypt:<valeur> => Cryptage de <valeur>\n")
-			.append("-fd:<valeur> / --filedecrypt:<chemin_fichier> => Décryptage du fichier\n")
-			.append("-fe:<valeur> / --fileencrypt:<chemin_fichier> => Cryptage du fichier\n\n")
-			.append("EXEMPLE:\n")
-			.append("Enigmator --help\n")
-			.append("Enigmator -e:quelque_chose_a_crypter_sans_espace\n")
-			.append("Enigmator --decrypt:GSdR-&]=XhEQdEyl[PnpJCqE/nfQTeIN`I}\n\n")
-			.append("VERSION:\n")
+		str.append("[command]\n")
+			.append("short command name\n\n")
+			.append("-h\tthis help menu\n")
+			.append("-e:<value to decrypt>\tencrypt the text in argument\n")
+			.append("-d:<value to decrypt>\tdecrypt the text in argument\n")
+			.append("-fe:<path_to_file>\tencrypt the file contents\n")
+			.append("-fd:<path_to_file>\tdecrypt the file contents\n")
+			.append("\n").append("long command name\n\n")
+			.append("--help\tthis help menu\n")
+			.append("--encrypt:<value to decrypt>\tencrypt the text in argument\n")
+			.append("--decrypt:<value to decrypt>\tdecrypt the text in argument\n")
+			.append("--fileencrypt:<path_to_file>\tencrypt the file contents\n")
+			.append("--filedecrypt:<path_to_file>\tdecrypt the file contents\n")
+			.append("\n\n\tEXAMPLE:\n")
+			.append("\tEnigmator --help\n")
+			.append("\tEnigmator -e:write something here\n")
+			.append("\tEnigmator --decrypt:GSdR-&]=XhEQdEyl[PnpJCqE/nfQTeIN`I}\n\n")
+			.append("VERSION:\n\t")
 			.append(version + "\n");
 		return str.toString();
 	}
