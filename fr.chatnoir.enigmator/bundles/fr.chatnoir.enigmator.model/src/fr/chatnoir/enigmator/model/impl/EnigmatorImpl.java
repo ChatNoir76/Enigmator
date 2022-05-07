@@ -1,4 +1,4 @@
-package fr.chatnoir.enigmator.model.impl;
+  package fr.chatnoir.enigmator.model.impl;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,6 @@ public class EnigmatorImpl extends MEnigmatorImpl implements Enigmator
 			throw new EnigmatorException("Enigmator configuration problem : empty disk");
 		}
 		
-		
 		//Traitement du texte
 		char[] sourceAsArray = source.toCharArray();
 		for(int position = 0;position < sourceAsArray.length;position++) {
@@ -49,6 +48,10 @@ public class EnigmatorImpl extends MEnigmatorImpl implements Enigmator
 				while(ascii < 0) ascii += Enigmator.table.size();
 				int enigma = ascii%Enigmator.table.size();
 				c = this.getChar(enigma);
+			} else {
+				System.err.println(String.format("unknown character [%c] was discarded and replaced by [%c]", 
+						sourceAsArray[position], 
+						Enigmator.unknownAsChar));
 			}
 			s.append(c);
 		}

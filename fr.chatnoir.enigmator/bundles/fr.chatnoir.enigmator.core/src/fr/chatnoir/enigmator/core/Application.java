@@ -7,6 +7,8 @@ import java.util.List;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.chatnoir.enigmator.core.arguments.ArgsProcessor;
 import fr.chatnoir.enigmator.core.arguments.ArgsType;
@@ -19,9 +21,11 @@ import fr.chatnoir.enigmator.response.Responser;
  */
 public class Application implements IApplication {
 	
+	protected static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+	
 	@Override
 	public Object start(IApplicationContext context) throws Exception {
-		
+		LOGGER.info("starting application");
 		// récupération de la liste des arguments
 		List<String> args = Arrays.asList(Platform.getApplicationArgs());
 		ArgsProcessor arguments = new ArgsProcessor(args);
@@ -55,8 +59,9 @@ public class Application implements IApplication {
 		if(process != null) {
 			process.run();
 			Response.eInstance().sendResponse(process.getResult());
+		} else {
+			LOGGER.error("Wrong Arguments, try --help");
 		}
-		
 		return IApplication.EXIT_OK;
 	}
 

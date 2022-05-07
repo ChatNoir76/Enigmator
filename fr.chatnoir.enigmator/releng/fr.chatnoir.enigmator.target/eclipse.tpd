@@ -1,0 +1,23 @@
+target "eclipse.tpd"
+
+location "http://download.eclipse.org/releases/2020-12" {
+	org.eclipse.equinox.sdk.feature.group [3.21.0,3.21.1)
+	org.eclipse.emf.sdk.feature.group lazy
+}
+
+location "https://download.eclipse.org/tools/orbit/downloads/drops/R20201130205003/repository" {
+	ch.qos.logback.classic lazy
+	ch.qos.logback.classic.source lazy
+	ch.qos.logback.core lazy
+	ch.qos.logback.core.source lazy
+	ch.qos.logback.slf4j lazy
+	ch.qos.logback.slf4j.source lazy
+	org.apache.commons.logging lazy
+	org.apache.commons.logging.source lazy
+	org.apache.log4j lazy
+	org.apache.log4j.source lazy
+	org.apache.logging.log4j lazy
+	org.apache.logging.log4j.source lazy
+	org.apache.commons.lang lazy
+	org.apache.commons.lang.source lazy
+}

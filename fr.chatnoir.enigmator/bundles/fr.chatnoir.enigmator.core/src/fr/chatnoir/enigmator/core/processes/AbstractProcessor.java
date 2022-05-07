@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 public abstract class AbstractProcessor implements Runnable {
 
-	protected static final Logger LOGGER = LoggerFactory.getLogger(AbstractProcessor.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger("Processor");
 	
 	private String processName;
 	
@@ -15,10 +15,8 @@ public abstract class AbstractProcessor implements Runnable {
 	
 	public AbstractProcessor(String processName) {
 		this.processName = processName;
+		LOGGER.info("Creating process " + processName);
 	}
-
-	@Override
-	public abstract void run();
 
 	public abstract String getResult();
 }

@@ -3,14 +3,10 @@ package fr.chatnoir.enigmator.core.processes;
 import java.util.Optional;
 
 import org.osgi.framework.Version;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import fr.chatnoir.enigmator.service.Service;
 
 public class HelpProcessor extends AbstractProcessor {
-
-	protected static final Logger LOGGER = LoggerFactory.getLogger(HelpProcessor.class);
 	
 	private String version;
 	
@@ -26,12 +22,14 @@ public class HelpProcessor extends AbstractProcessor {
 		if(ver.isPresent()) {
 			version = ver.get().toString();
 		}else {
-			version = "Development application";
+			LOGGER.warn("No application version found");
+			version = "none";
 		}
 	}
 
 	@Override
 	public String getResult() {
+		LOGGER.info("openning help menu");
 		StringBuilder str = new StringBuilder("Help menu activation...\n\nUsage:\n\nEnigmator <command>\n\n");
 		
 		str.append("[command]\n")
