@@ -17,26 +17,29 @@ public abstract class EnigmatorProcessor extends AbstractProcessor implements Ru
 
 	public EnigmatorProcessor(String processName, String source) {
 		super(processName);
-		this.source = source;
+		LOGGER.info("process from terminal");
+		if(source.isEmpty()) {
+			LOGGER.error("no source to process");
+		}else {
+			this.source = source;
+		}
 	}
 	
 	public EnigmatorProcessor(String processName, File file) {
 		super(processName);
+		LOGGER.info("process from file");
 		Optional<String> fileSource = ReadFile(file);
 		fileSource.ifPresent(s -> {
 			this.source = s;
 		});
 	}
-
-	@Override
-	public abstract void run();
 	
 	public String getResult() {
 		return resultat;
 	};
 	
 	private Optional<String> ReadFile(File file) {
-
+		LOGGER.info("try to read the file");
 	    // Créer l'objet File Reader
 		if(file.isFile()) {
 			try (FileReader fr = new FileReader(file)){
@@ -46,19 +49,19 @@ public abstract class EnigmatorProcessor extends AbstractProcessor implements Ru
 					String line;
 					while((line = br.readLine()) != null)
 					{
-					    // ajoute la ligne au buffer
 						sb.append(line);      
 						sb.append(" ");     
 					}
+					LOGGER.info("file was read with success");
 					return Optional.ofNullable(sb.toString().trim());
 				} catch (IOException e) {
-					LOGGER.error("Erreur lors de la mise en cache du fichier", e);
+					LOGGER.error("error during buffering file", e);
 				}
 			} catch (IOException e1) {
-				LOGGER.error("Erreur lors de la lecture du fichier", e1);
+				LOGGER.error("error during reading the file", e1);
 			}
 		} else {
-			LOGGER.error("Le fichier n'existe pas : " + file.getPath());
+			LOGGER.error("file is missing : " + file.getPath());
 		}
 		return Optional.ofNullable(null);
 	}

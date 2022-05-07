@@ -24,7 +24,7 @@ public class Activator implements BundleActivator {
 		try {
 			Service.configureLogbackInBundle();
 		} catch (JoranException | IOException ex) {
-			System.out.println("Logger error : " + ex.getMessage());
+			System.err.println("logger error : " + ex.getMessage());
 		}
 	}
 

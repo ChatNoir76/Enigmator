@@ -18,4 +18,6 @@ location "https://download.eclipse.org/tools/orbit/downloads/drops/R202011302050
 	org.apache.log4j.source lazy
 	org.apache.logging.log4j lazy
 	org.apache.logging.log4j.source lazy
+	org.apache.commons.lang lazy
+	org.apache.commons.lang.source lazy
 }
