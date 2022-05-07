@@ -1,0 +1,5 @@
+target "justj.tpd"
+
+location "https://download.eclipse.org/justj/jres/15/updates/release/15.0.2" {
+	org.eclipse.justj.openjdk.hotspot.jre.minimal.feature.group [15.0.2,15.0.3)
+}

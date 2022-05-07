@@ -8,7 +8,7 @@ Require-Bundle: org.eclipse.core.runtime,
  fr.chatnoir.enigmator.model,
  ch.qos.logback.classic;bundle-version="1.2.3",
  ch.qos.logback.core;bundle-version="1.2.3",
- fr.chatnoir.enigmator.service;bundle-version="1.2.0"
+ fr.chatnoir.enigmator.service
 Bundle-RequiredExecutionEnvironment: JavaSE-15
 Automatic-Module-Name: fr.chatnoir.enigmator.core
 Bundle-ActivationPolicy: lazy

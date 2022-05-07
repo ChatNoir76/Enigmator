@@ -1,0 +1,6 @@
+target "fr.chatnoir.enigmator.target.target"
+
+with source requirements
+
+include "eclipse.tpd"
+include "justj.tpd"
