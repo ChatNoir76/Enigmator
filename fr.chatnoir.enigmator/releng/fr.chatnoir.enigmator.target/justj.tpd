@@ -1,5 +1,5 @@
 target "justj"
 
-location "https://download.eclipse.org/justj/jres/15/updates/release/15.0.2" justj {
+location "https://download.eclipse.org/justj/jres/17/updates/release/latest" justj {
 	org.eclipse.justj.openjdk.hotspot.jre.minimal.feature.group lazy
 }

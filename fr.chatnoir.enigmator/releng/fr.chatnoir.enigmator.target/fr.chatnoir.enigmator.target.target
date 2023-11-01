@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
-<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl --><target name="fr.chatnoir.enigmator.target" sequenceNumber="1660080300">
+<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl --><target name="fr.chatnoir.enigmator.target" sequenceNumber="1698871453">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.23.200.v20211117-0650"/>
@@ -10,7 +10,7 @@
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
       <unit id="org.eclipse.justj.openjdk.hotspot.jre.minimal.feature.group" version="0.0.0"/>
-      <repository id="justj" location="https://download.eclipse.org/justj/jres/15/updates/release/15.0.2"/>
+      <repository id="justj" location="https://download.eclipse.org/justj/jres/17/updates/release/latest"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
       <unit id="ch.qos.logback.classic" version="1.2.3.v20200428-2012"/>
@@ -21,6 +21,16 @@
       <unit id="org.apache.logging.log4j" version="2.8.2.v20200818-1118"/>
       <repository id="orbit" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20201130205003/repository"/>
     </location>
+	  <location includeDependencyDepth="none" includeSource="true" missingManifest="generate" type="Maven">
+		  <dependencies>
+			  <dependency>
+				  <groupId>info.picocli</groupId>
+				  <artifactId>picocli</artifactId>
+				  <version>4.7.5</version>
+				  <type>jar</type>
+			  </dependency>
+		  </dependencies>
+	  </location>
   </locations>
-  <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15"/>
+  <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
 </target>

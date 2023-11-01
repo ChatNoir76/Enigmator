@@ -11,7 +11,6 @@
 	
 	<modules>
 		<module>fr.chatnoir.enigmator.target</module>
-		<module>fr.chatnoir.enigmator.updateSite</module>
 		<module>fr.chatnoir.enigmator.product</module>		
 	</modules>
 	
