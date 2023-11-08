@@ -1,6 +1,7 @@
 package fr.chatnoir.enigmator.core.picocli;
 
 import java.io.File;
+import java.util.function.Consumer;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,25 +33,33 @@ public class EnigmatorRunner implements Runnable {
 	@Override
 	public void run() {
 		Responser.eInstance().setAsConsole();
-		for(String str : decrypt) {
+		
+		runProcessExecution(decrypt, str -> {
 			LOGGER.info(str);
 			runProcess(EnigmatorFactory.getDecryptProcess(str));
-		}
-		for(String str : encrypt) {
+		});
+		runProcessExecution(encrypt, str -> {
 			LOGGER.info(str);
 			runProcess(EnigmatorFactory.getEncryptProcess(str));
-		}
-		for(String str : fDecrypt) {
+		});
+		runProcessExecution(fDecrypt, str -> {
 			LOGGER.info(str);
 			Responser.eInstance().setAsFile(str);
 			runProcess(EnigmatorFactory.getFileDecryptProcess(new File(str)));
-		}
-		for(String str : fEncrypt) {
+		});
+		runProcessExecution(fEncrypt, str -> {
 			LOGGER.info(str);
 			Responser.eInstance().setAsFile(str);
 			runProcess(EnigmatorFactory.getFileEncryptProcess(new File(str)));
+		});
+	}
+	
+	private void runProcessExecution(String[] processName, Consumer<String> process) {
+		if(processName != null) {
+			for(String str : processName) {
+				process.accept(str);
+			}
 		}
-
 	}
 	
 	private void runProcess(AbstractProcessor process) {
