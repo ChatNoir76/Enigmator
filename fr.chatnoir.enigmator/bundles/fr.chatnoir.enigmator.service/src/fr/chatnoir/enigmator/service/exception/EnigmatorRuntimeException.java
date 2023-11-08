@@ -1,7 +1,7 @@
 package fr.chatnoir.enigmator.service.exception;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class EnigmatorRuntimeException extends RuntimeException {
 
@@ -10,7 +10,7 @@ public class EnigmatorRuntimeException extends RuntimeException {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(EnigmatorRuntimeException.class);
+	private static final Logger LOGGER = LogManager.getLogger(EnigmatorRuntimeException.class);
 
 	public EnigmatorRuntimeException(String message, Throwable cause) {
 		super(message, cause);

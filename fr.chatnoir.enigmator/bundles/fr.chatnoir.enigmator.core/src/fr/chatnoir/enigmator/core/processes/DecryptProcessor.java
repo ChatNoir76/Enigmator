@@ -2,8 +2,8 @@ package fr.chatnoir.enigmator.core.processes;
 
 import java.io.File;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import fr.chatnoir.enigmator.model.Enigmator;
 import fr.chatnoir.enigmator.model.ModelFactory;
@@ -13,7 +13,7 @@ import fr.chatnoir.enigmator.service.exception.EnigmatorRuntimeException;
 
 public class DecryptProcessor extends EnigmatorProcessor {
 
-	protected static final Logger LOGGER = LoggerFactory.getLogger(DecryptProcessor.class);
+	protected static final Logger LOGGER = LogManager.getLogger(DecryptProcessor.class);
 	
 	public DecryptProcessor(String source) {
 		super("Decrypt", source);

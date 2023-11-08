@@ -2,8 +2,8 @@ package fr.chatnoir.enigmator.core.picocli;
 
 import java.io.File;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import fr.chatnoir.enigmator.core.EnigmatorFactory;
 import fr.chatnoir.enigmator.core.processes.AbstractProcessor;
@@ -15,7 +15,7 @@ import picocli.CommandLine.Option;
 @Command(name = "Enigmator", versionProvider = fr.chatnoir.enigmator.core.picocli.EnigmatorVersionProvider.class, mixinStandardHelpOptions = true)
 public class EnigmatorRunner implements Runnable {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(EnigmatorRunner.class);
+	private static final Logger LOGGER = LogManager.getLogger(EnigmatorRunner.class);
 
 	@Option(names = { "-d", "--decrypt" }, description = "Décryptage de la chaine de caractère") 
     String[] decrypt;

@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
-<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl --><target name="fr.chatnoir.enigmator.target" sequenceNumber="1698871453">
+<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl --><target name="fr.chatnoir.enigmator.target" sequenceNumber="1699465778">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
-      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.23.200.v20211117-0650"/>
-      <unit id="org.eclipse.platform.sdk" version="4.22.0.I20211124-1800"/>
-      <unit id="org.eclipse.emf.edit.feature.group" version="2.17.0.v20210924-1718"/>
-      <repository id="eclipse" location="https://download.eclipse.org/eclipse/updates/4.22"/>
+      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.23.900.v20230808-1403"/>
+      <unit id="org.eclipse.platform.sdk" version="4.29.0.I20230903-1000"/>
+      <unit id="org.eclipse.emf.edit.feature.group" version="2.20.0.v20230828-0616"/>
+      <repository id="eclipse" location="https://download.eclipse.org/eclipse/updates/4.29"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
       <unit id="org.eclipse.justj.openjdk.hotspot.jre.minimal.feature.group" version="0.0.0"/>
       <repository id="justj" location="https://download.eclipse.org/justj/jres/17/updates/release/latest"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
-      <unit id="ch.qos.logback.classic" version="1.2.3.v20200428-2012"/>
-      <unit id="ch.qos.logback.core" version="1.2.3.v20200428-2012"/>
-      <unit id="ch.qos.logback.slf4j" version="1.2.3.v20200428-2012"/>
-      <unit id="org.apache.commons.logging" version="1.2.0.v20180409-1502"/>
-      <unit id="org.apache.log4j" version="1.2.15.v201012070815"/>
-      <unit id="org.apache.logging.log4j" version="2.8.2.v20200818-1118"/>
-      <repository id="orbit" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20201130205003/repository"/>
+      <unit id="org.apache.logging.log4j" version="2.17.1.v20220106-2156"/>
+      <repository id="orbit" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20230531010532/repository"/>
     </location>
 	  <location includeDependencyDepth="none" includeSource="true" missingManifest="generate" type="Maven">
 		  <dependencies>

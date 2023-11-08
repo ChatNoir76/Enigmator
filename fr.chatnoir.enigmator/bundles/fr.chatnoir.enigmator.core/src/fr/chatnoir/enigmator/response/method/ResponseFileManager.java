@@ -4,12 +4,12 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ResponseFileManager implements IResponseManager {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ResponseFileManager.class);
+	private static final Logger LOGGER = LogManager.getLogger(ResponseFileManager.class);
 	
 	private String filePath;
 	
@@ -24,7 +24,7 @@ public class ResponseFileManager implements IResponseManager {
 			out.write(information);
 			out.close();
 		} catch (IOException e) {
-			LOGGER.error("Erreur lors de l'écriture du fichier", e);
+			LOGGER.error("Erreur lors de l'ï¿½criture du fichier", e);
 		}
 
 	}

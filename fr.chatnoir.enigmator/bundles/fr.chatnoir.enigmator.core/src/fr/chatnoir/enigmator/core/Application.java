@@ -1,10 +1,10 @@
 package fr.chatnoir.enigmator.core;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import fr.chatnoir.enigmator.core.picocli.EnigmatorRunner;
 import fr.chatnoir.enigmator.service.exception.EnigmatorRuntimeException;
@@ -15,7 +15,7 @@ import picocli.CommandLine;
  */
 public class Application implements IApplication {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+	private static final Logger LOGGER = LogManager.getLogger(Application.class);
 	
 	@Override
 	public Object start(IApplicationContext context) throws Exception {

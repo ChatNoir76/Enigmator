@@ -1,12 +1,7 @@
 package fr.chatnoir.enigmator;
 
-import java.io.IOException;
-
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-
-import ch.qos.logback.core.joran.spi.JoranException;
-import fr.chatnoir.enigmator.service.Service;
 
 
 public class Activator implements BundleActivator {
@@ -21,11 +16,6 @@ public class Activator implements BundleActivator {
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.bundleContext = bundleContext;
 		Thread.currentThread().setName("Enigmator");
-		try {
-			Service.configureLogbackInBundle();
-		} catch (JoranException | IOException ex) {
-			System.out.println("Logger error : " + ex.getMessage());
-		}
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {
