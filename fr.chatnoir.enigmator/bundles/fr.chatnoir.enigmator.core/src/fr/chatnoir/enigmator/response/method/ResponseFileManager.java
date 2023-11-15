@@ -1,9 +1,10 @@
 package fr.chatnoir.enigmator.response.method;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,14 +20,13 @@ public class ResponseFileManager implements IResponseManager {
 
 	@Override 
 	public void sendResponse(String information) {
-		try(FileWriter lu = new FileWriter(filePath)){
-			BufferedWriter out = new BufferedWriter(lu);
-			out.write(information);
-			out.close();
+		
+		try {
+			FileUtils.write(new File(filePath), information, StandardCharsets.UTF_8);
 		} catch (IOException e) {
-			LOGGER.error("Erreur lors de l'�criture du fichier", e);
+			LOGGER.error("write error", e);
 		}
-
+		
 	}
 
 }

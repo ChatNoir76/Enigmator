@@ -5,13 +5,8 @@ import java.io.File;
 import fr.chatnoir.enigmator.core.processes.AbstractProcessor;
 import fr.chatnoir.enigmator.core.processes.DecryptProcessor;
 import fr.chatnoir.enigmator.core.processes.EncryptProcessor;
-import fr.chatnoir.enigmator.core.processes.HelpProcessor;
 
 public class EnigmatorFactory {
-	
-	public static final AbstractProcessor getHelpProcess() {
-		return new HelpProcessor();
-	}
 	
 	public static final AbstractProcessor getEncryptProcess(String source) {
 		return new EncryptProcessor(source);
