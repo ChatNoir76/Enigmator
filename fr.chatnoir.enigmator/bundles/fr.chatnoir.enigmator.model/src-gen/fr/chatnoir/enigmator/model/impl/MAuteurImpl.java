@@ -3,6 +3,7 @@
 package fr.chatnoir.enigmator.model.impl;
 
 import fr.chatnoir.enigmator.model.Auteur;
+import fr.chatnoir.enigmator.model.MAuteur;
 import fr.chatnoir.enigmator.model.MModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,7 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class MAuteurImpl extends MinimalEObjectImpl.Container implements Auteur {
+public class MAuteurImpl extends MinimalEObjectImpl.Container implements MAuteur {
 	/**
 	 * The default value of the '{@link #getNom() <em>Nom</em>}' attribute.
 	 * <!-- begin-user-doc -->
