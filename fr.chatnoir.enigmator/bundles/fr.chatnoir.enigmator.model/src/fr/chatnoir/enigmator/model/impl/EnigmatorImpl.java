@@ -47,8 +47,10 @@ public class EnigmatorImpl extends MEnigmatorImpl implements Enigmator
 		//Traitement du texte
 		char[] sourceAsArray = source.toCharArray();
 		for(int position = 0;position < sourceAsArray.length;position++) {
-			int ascii = this.getNumber(sourceAsArray[position]);
-			char c = Enigmator.unknownAsChar;
+			
+			char c = sourceAsArray[position];
+			int ascii = this.getNumber(c);
+			
 			if(ascii != Enigmator.unknownAsInt) {
 				ascii += mixerChain.get(position)*operation.getValue();
 				while(ascii < 0) ascii += Enigmator.table.size();
