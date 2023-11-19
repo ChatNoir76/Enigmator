@@ -13,6 +13,24 @@ import fr.chatnoir.enigmator.service.exception.EnigmatorException;
 
 public abstract class AbstractEnigmatorTest {
 
+	protected static final String longString = "azertyuiopqsdfghjklmwxcvbn";
+	
+	protected static final String longStringWithSpace = "azertyui opqsdfg hjklmw xcvbn";
+	
+	protected static final String complexString = "aaa/naaa/n/taaaaa";
+	
+	protected static final String multilineString = """
+			azertyuiopqsdfghjklmwxcvbn
+			azertyuiopqsdfghjklmwxcvbn
+			azertyuiopqsdfghjklmwxcvbn
+			""";
+	
+	protected static final String multilineStringWithSpace = """
+			azertyu iopqsdfghj klmwxcvbn
+			azer tyuio pqs dfghj klmwxcvbn
+			aze rtyuiop qsdfghj klmwx cvbn
+			""";
+	
 	private Enigmator enigmator;
 	
 	private int iterationMax;

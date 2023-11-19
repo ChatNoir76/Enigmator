@@ -9,8 +9,6 @@ import fr.chatnoir.enigmator.tests.AbstractEnigmatorTest;
 
 public class OneStepEnigmatorTest extends AbstractEnigmatorTest {
 
-	private static final String longString = "azertyuiopqsdfghjklmwxcvbn";
-	
 	@Override
 	protected Enigmator createEnigmator() {
 		return ModelFactory.eINSTANCE.createStepOneEnigmator();
@@ -25,4 +23,25 @@ public class OneStepEnigmatorTest extends AbstractEnigmatorTest {
 	void fullString() throws EnigmatorException {
 		testEnigmator(getFullString());
 	}
+	
+	@Test
+	void multilineString() throws EnigmatorException {
+		testEnigmator(multilineString);
+	}
+	
+	@Test
+	void complexString() throws EnigmatorException {
+		testEnigmator(complexString);
+	}
+	
+	@Test
+	void multilineSpaceString() throws EnigmatorException {
+		testEnigmator(multilineStringWithSpace);
+	}
+	
+	@Test
+	void simpleSpaceString() throws EnigmatorException {
+		testEnigmator(longStringWithSpace);
+	}
+	
 }

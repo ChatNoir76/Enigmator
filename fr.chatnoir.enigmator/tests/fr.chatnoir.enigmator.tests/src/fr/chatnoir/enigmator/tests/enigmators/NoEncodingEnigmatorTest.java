@@ -8,8 +8,6 @@ import fr.chatnoir.enigmator.service.exception.EnigmatorException;
 import fr.chatnoir.enigmator.tests.AbstractEnigmatorTest;
 
 public class NoEncodingEnigmatorTest extends AbstractEnigmatorTest {
-
-	private static final String longString = "azertyuiopqsdfghjklmwxcvbn";
 	
 	@Override
 	protected Enigmator createEnigmator() {
@@ -25,5 +23,26 @@ public class NoEncodingEnigmatorTest extends AbstractEnigmatorTest {
 	void fullString() throws EnigmatorException {
 		testEnigmator(getFullString());
 	}
+	
+	@Test
+	void multilineString() throws EnigmatorException {
+		testEnigmator(multilineString);
+	}
+	
+	@Test
+	void complexString() throws EnigmatorException {
+		testEnigmator(complexString);
+	}
+	
+	@Test
+	void multilineSpaceString() throws EnigmatorException {
+		testEnigmator(multilineStringWithSpace);
+	}
+	
+	@Test
+	void simpleSpaceString() throws EnigmatorException {
+		testEnigmator(longStringWithSpace);
+	}
+	
 
 }
