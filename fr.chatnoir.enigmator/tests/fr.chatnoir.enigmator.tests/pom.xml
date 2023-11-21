@@ -7,6 +7,6 @@
   </parent>
   
   <artifactId>fr.chatnoir.enigmator.tests</artifactId>
-  <packaging>eclipse-test-plugin</packaging>
+  <!--<packaging>eclipse-test-plugin</packaging>-->
   
 </project>

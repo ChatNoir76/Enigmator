@@ -15,4 +15,4 @@ Require-Bundle: org.eclipse.emf.ecore;bundle-version="[2.35.0,3.0.0)";visibility
  org.apache.logging.log4j;bundle-version="[2.17.1,3.0.0)"
 Automatic-Module-Name: fr.chatnoir.enigmator.model
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-17
