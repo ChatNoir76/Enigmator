@@ -27,7 +27,7 @@ public class EnigmatorRunner implements Runnable {
 	@Option(names = { "-fd", "--filedecrypt" }, description = "Chemin absolu du fichier à décrypter") 
 	String[] fDecrypt;
 	
-	@Option(names = { "fe", "--fileencrypt" }, description = "Chemin absolu du fichier à Crypter") 
+	@Option(names = { "-fe", "--fileencrypt" }, description = "Chemin absolu du fichier à Crypter") 
 	String[] fEncrypt;
 	
 	@Override
