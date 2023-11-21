@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Enigmator
 Bundle-SymbolicName: fr.chatnoir.enigmator.core;singleton:=true
-Bundle-Version: 1.2.1.qualifier
+Bundle-Version: 1.2.2.qualifier
 Bundle-Activator: fr.chatnoir.enigmator.Activator
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.29.0,4.0.0)",
  fr.chatnoir.enigmator.model,

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Service
 Bundle-SymbolicName: fr.chatnoir.enigmator.service
-Bundle-Version: 1.2.1.qualifier
+Bundle-Version: 1.2.2.qualifier
 Bundle-Activator: fr.chatnoir.enigmator.service.Activator
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.29.0,4.0.0)",
  org.apache.logging.log4j;bundle-version="[2.17.1,3.0.0)"
