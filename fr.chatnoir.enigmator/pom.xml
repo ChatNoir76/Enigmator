@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>fr.chatnoir.enigmator</groupId>
   <artifactId>fr.chatnoir.enigmator</artifactId>
-  <version>1.2.1-SNAPSHOT</version>
+  <version>1.2.2-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Enigmator</name>
   
@@ -18,7 +18,7 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<!-- Tycho settings -->
-		<tycho-version>4.0.4</tycho-version>
+		<tycho-version>3.0.5</tycho-version>
 	</properties>
 	
 	<build>
