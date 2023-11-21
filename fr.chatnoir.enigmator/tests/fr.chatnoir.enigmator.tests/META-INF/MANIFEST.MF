@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests
+Bundle-SymbolicName: fr.chatnoir.enigmator.tests
+Bundle-Version: 1.2.1.qualifier
+Import-Package: org.junit.platform.commons;version="1.10.0",
+ org.junit.platform.engine;version="1.10.0",
+ org.junit.platform.launcher;version="1.10.0"
+Automatic-Module-Name: fr.chatnoir.enigmator.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Require-Bundle: org.junit.jupiter.api;bundle-version="[5.9.1,6.0.0)",
+ org.junit.jupiter.engine;bundle-version="[5.9.1,6.0.0)",
+ org.mockito.junit-jupiter;bundle-version="[4.8.1,5.0.0)",
+ fr.chatnoir.enigmator.core,
+ fr.chatnoir.enigmator.model,
+ fr.chatnoir.enigmator.service

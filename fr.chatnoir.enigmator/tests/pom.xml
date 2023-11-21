@@ -10,7 +10,7 @@
 	<packaging>pom</packaging>
 	
 	<modules>
-	
+		<module>fr.chatnoir.enigmator.tests</module>
 	</modules>
 
 </project>

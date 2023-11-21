@@ -3,6 +3,7 @@
 package fr.chatnoir.enigmator.model.impl;
 
 import fr.chatnoir.enigmator.model.About;
+import fr.chatnoir.enigmator.model.MAbout;
 import fr.chatnoir.enigmator.model.MModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -29,7 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class MAboutImpl extends MinimalEObjectImpl.Container implements About {
+public class MAboutImpl extends MinimalEObjectImpl.Container implements MAbout {
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->

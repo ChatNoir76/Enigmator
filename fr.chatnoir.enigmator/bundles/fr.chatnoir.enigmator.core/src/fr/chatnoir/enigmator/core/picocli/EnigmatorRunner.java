@@ -27,19 +27,19 @@ public class EnigmatorRunner implements Runnable {
 	@Option(names = { "-fd", "--filedecrypt" }, description = "Chemin absolu du fichier à décrypter") 
 	String[] fDecrypt;
 	
-	@Option(names = { "fe", "--fileencrypt" }, description = "Chemin absolu du fichier à Crypter") 
+	@Option(names = { "-fe", "--fileencrypt" }, description = "Chemin absolu du fichier à Crypter") 
 	String[] fEncrypt;
 	
 	@Override
 	public void run() {
-		Responser.eInstance().setAsConsole();
-		
 		runProcessExecution(decrypt, str -> {
 			LOGGER.info(str);
+			Responser.eInstance().setAsConsole();
 			runProcess(EnigmatorFactory.getDecryptProcess(str));
 		});
 		runProcessExecution(encrypt, str -> {
 			LOGGER.info(str);
+			Responser.eInstance().setAsConsole();
 			runProcess(EnigmatorFactory.getEncryptProcess(str));
 		});
 		runProcessExecution(fDecrypt, str -> {
@@ -52,6 +52,7 @@ public class EnigmatorRunner implements Runnable {
 			Responser.eInstance().setAsFile(str);
 			runProcess(EnigmatorFactory.getFileEncryptProcess(new File(str)));
 		});
+		System.exit(0);
 	}
 	
 	private void runProcessExecution(String[] processName, Consumer<String> process) {
