@@ -1,6 +1,7 @@
 package fr.chatnoir.enigmator.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -80,6 +81,12 @@ public abstract class AbstractEnigmatorTest {
 		String step =  enigmator.execute(Operation.CRYPTAGE, chain);
 		String result = enigmator.execute(Operation.DECRYPTAGE, step);
 		assertEquals(chain, result);
+	}
+	
+	protected void testSaltAlgorithm(String chain) throws EnigmatorException {
+		String step =  enigmator.execute(Operation.CRYPTAGE, chain);
+		String step2 =  enigmator.execute(Operation.CRYPTAGE, chain);
+		assertNotEquals(step, step2);
 	}
 	
 }

@@ -17,12 +17,15 @@ public interface Enigmator extends MEnigmator
 	 */
 	final public char unknownAsChar = '#';
 	final public int unknownAsInt = -1;
+	final public char saltAsChar = '²';
+	final public int saltAsInt = -2;
 	/**
 	 * conversion from char to number
 	 * @param caractere char to convert
 	 * @return converted number
 	 */
 	default public int getNumber(char caractere) {
+		
 		if(table.contains(caractere)) {
 			return table.indexOf(caractere);
 		} else {

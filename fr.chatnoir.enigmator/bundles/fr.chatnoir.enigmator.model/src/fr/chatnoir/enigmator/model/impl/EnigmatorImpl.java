@@ -2,9 +2,6 @@ package fr.chatnoir.enigmator.model.impl;
 
 import java.util.ArrayList;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import fr.chatnoir.enigmator.model.Enigmator;
 import fr.chatnoir.enigmator.model.Operation;
 import fr.chatnoir.enigmator.service.exception.EnigmatorException;
@@ -13,26 +10,25 @@ import fr.chatnoir.enigmator.service.exception.EnigmatorException;
 public class EnigmatorImpl extends MEnigmatorImpl implements Enigmator
 {
 	
-	private static final Logger LOGGER = LogManager.getLogger(EnigmatorImpl.class);
-	
 	/**
 	 * Chain will made by disque
 	 */
 	private ArrayList<Integer> mixerChain;
 	
-	@Override
-	public String execute(Operation operation, String source) throws EnigmatorException {
-		StringBuilder s = new StringBuilder("");
-		mixerChain = new ArrayList<Integer>();
-		
+	private ArrayList<Integer> createMixerChain(int number) throws EnigmatorException{
+		ArrayList<Integer> mixerChain = new ArrayList<Integer>();
 		//mixer chain generation
 		if(this.getDisques().size()>0) {
-			while(mixerChain.size() < source.length()) {
+			while(mixerChain.size() < number * 2) {
 				this.getDisques().forEach(d -> {
 					if(d.getChain().size()>0) {
 						d.getChain().forEach(c -> {
+							if(d.getIntervalle() != 0) {
+								if(mixerChain.size()%d.getIntervalle() == 0) {
+									mixerChain.add(Enigmator.saltAsInt);
+								}
+							}
 							mixerChain.add(this.getNumber(c));
-							//TODO add intervalle arg
 						});
 					}
 				});
@@ -43,25 +39,52 @@ public class EnigmatorImpl extends MEnigmatorImpl implements Enigmator
 		}else {
 			throw new EnigmatorException("Enigmator configuration problem : empty disk");
 		}
+		return mixerChain;
+	}
+	
+	@Override
+	public String execute(Operation operation, String source) throws EnigmatorException {
+		
+		StringBuilder s = new StringBuilder("");
+		mixerChain = createMixerChain(source.length());
 		
 		//Traitement du texte
 		char[] sourceAsArray = source.toCharArray();
+		int salt = 0;
 		for(int position = 0;position < sourceAsArray.length;position++) {
-			
 			char c = sourceAsArray[position];
 			int ascii = this.getNumber(c);
 			
-			if(ascii != Enigmator.unknownAsInt) {
-				ascii += mixerChain.get(position)*operation.getValue();
-				while(ascii < 0) ascii += Enigmator.table.size();
-				int enigma = ascii%Enigmator.table.size();
-				c = this.getChar(enigma);
-				LOGGER.trace(String.format("[%d] %s -> %s [%d]", ascii, sourceAsArray[position], c, enigma));
+			if(operation == Operation.CRYPTAGE) {
+				if(mixerChain.get(position + salt) == Enigmator.saltAsInt) {
+					int r = (int)(Math.random() * (Enigmator.table.size()));
+					s.append(Enigmator.table.get(r));
+					salt++;
+				}
+				Character c_convert = getCharacter(ascii, operation, position + salt);
+				s.append(c_convert == null ? c : c_convert);
+			} else if (operation == Operation.DECRYPTAGE) {
+				if(mixerChain.get(position) != Enigmator.saltAsInt) {
+					Character c_convert = getCharacter(ascii, operation, position);
+					s.append(c_convert == null ? c : c_convert);
+				} 
 			}
-			s.append(c);
+			
+			
+			
 		}
-
 		return s.toString();
+	}
+	
+	private Character getCharacter(int ascii, Operation operation, int position) {
+		if(ascii != Enigmator.unknownAsInt) {
+			ascii += mixerChain.get(position)*operation.getValue();
+			while(ascii < 0) ascii += Enigmator.table.size();
+			int enigma = ascii%Enigmator.table.size();
+			return this.getChar(enigma);
+		} else {
+			return null;
+		}
 	}
 
 }

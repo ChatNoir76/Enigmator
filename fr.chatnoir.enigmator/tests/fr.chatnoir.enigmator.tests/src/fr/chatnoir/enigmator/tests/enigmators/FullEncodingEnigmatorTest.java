@@ -45,4 +45,9 @@ public class FullEncodingEnigmatorTest extends AbstractEnigmatorTest {
 		testEnigmator(longStringWithSpace);
 	}
 	
+	@Test
+	void saltString() throws EnigmatorException {
+		testSaltAlgorithm(longString);
+	}
+	
 }

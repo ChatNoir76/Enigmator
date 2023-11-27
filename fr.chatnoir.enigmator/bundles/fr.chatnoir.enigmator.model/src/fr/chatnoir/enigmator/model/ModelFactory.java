@@ -26,6 +26,19 @@ public interface ModelFactory extends MModelFactory
 		return e;
 	}
 	/**
+	 * No coding version, just repeat the same text with salt
+	 */
+	default Enigmator createNoEncodingWithSaltEnigmator() {
+		Enigmator e = this.createEnigmator();
+		
+		Disque d1 = this.createDisque();
+		d1.getChain().addAll(Arrays.asList('a'));
+		d1.setIntervalle(3);
+		
+		e.getDisques().add(d1);
+		return e;
+	}
+	/**
 	 * Simple coding version by step 1
 	 */
 	default Enigmator createStepOneEnigmator() {
@@ -72,7 +85,7 @@ public interface ModelFactory extends MModelFactory
 		e.setMail("chatnoirvip@gmail.com");
 		e.setNom("Noir");
 		e.setPrenom("Chat");
-		//e.setVersion("76");
+//		e.setVersion("76");
 		
 		return e;
 		
