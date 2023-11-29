@@ -52,7 +52,6 @@ public class EnigmatorRunner implements Runnable {
 			Responser.eInstance().setAsFile(str);
 			runProcess(EnigmatorFactory.getFileEncryptProcess(new File(str)));
 		});
-		System.exit(0);
 	}
 	
 	private void runProcessExecution(String[] processName, Consumer<String> process) {

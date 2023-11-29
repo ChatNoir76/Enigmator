@@ -3,6 +3,7 @@ target "orbit"
 location "https://download.eclipse.org/tools/orbit/downloads/drops/R20230531010532/repository" orbit {
 	org.apache.logging.log4j
 	org.apache.commons.io
+	org.apache.commons.lang
 	org.junit.jupiter.api
 	org.mockito.junit-jupiter
 	org.mockito.mockito-core

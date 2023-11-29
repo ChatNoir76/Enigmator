@@ -20,7 +20,7 @@ public class ResponseFileManager implements IResponseManager {
 
 	@Override 
 	public void sendResponse(String information) {
-		
+
 		try {
 			FileUtils.write(new File(filePath), information, StandardCharsets.UTF_8);
 		} catch (IOException e) {
