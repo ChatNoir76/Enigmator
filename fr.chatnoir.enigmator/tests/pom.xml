@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>fr.chatnoir.enigmator</groupId>
 		<artifactId>fr.chatnoir.enigmator</artifactId>
-		<version>1.2.2-SNAPSHOT</version>
+		<version>1.2.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>tests</artifactId>
 	<packaging>pom</packaging>
